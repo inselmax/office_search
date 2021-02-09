@@ -14,12 +14,12 @@ function htmlSearchForm_01() {
         <div>
           <p>エリアを選択</p>
           <label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
-          <label><input type="checkbox" name="area_01" value="01"> 南森町</label>
-          <label><input type="checkbox" name="area_02" value="02"> 西梅田</label>
-          <label><input type="checkbox" name="area_03" value="03"> 東梅田</label>
-          <label><input type="checkbox" name="area_04" value="04"> 梅田</label>
-          <label><input type="checkbox" name="area_05" value="05"> 中津</label>
-          <label><input type="checkbox" name="area_06" value="06"> 京橋</label>
+          <label><input type="checkbox" name="area_item[]" value="01"> 南森町</label>
+          <label><input type="checkbox" name="area_item[]" value="02"> 西梅田</label>
+          <label><input type="checkbox" name="area_item[]" value="03"> 東梅田</label>
+          <label><input type="checkbox" name="area_item[]" value="04"> 梅田</label>
+          <label><input type="checkbox" name="area_item[]" value="05"> 中津</label>
+          <label><input type="checkbox" name="area_item[]" value="06"> 京橋</label>
         <div>
         <div>
           <p>広さで検索</p>
