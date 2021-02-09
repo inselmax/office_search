@@ -165,9 +165,42 @@ function sortTsubo( $office_ary, $form_data ) {
 //
 function sortHito( $office_ary, $form_data ) {
 
-    $ary = array();
+    $ary = $office_ary;
 
+    // エリアで絞り込み
+    if( empty( $form_data['area_all'] ) ) {
+        if( $form_data['area_item'] ) {
 
+            $ary = array();
+
+            foreach ( $office_ary as $key => $value ) {
+                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item']) ) {
+                    array_push($ary, $value);
+                }
+            }
+        }
+    }
+
+    // 坪数で絞り込み
+    $min_tsubo = 0;
+    $max_tsubo = 999;
+
+    if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_tsubo ) {
+        $min_tsubo = $form_data['hito_min'] * 3;
+    }
+    if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_tsubo ) {
+        $max_tsubo = $form_data['hito_max'] * 3;
+    }
+
+    foreach ( $ary as $key => $value ) {
+
+        $tsubo = $value['gsx$契約面積坪']['$t'];
+
+        if ( $min_tsubo <= $tsubo && $max_tsubo >= $tsubo ) {
+        }else {
+            unset($ary[$key]);
+        }
+    }
 
     return $ary;
 }

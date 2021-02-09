@@ -155,16 +155,16 @@ if (!empty($_GET["page"]) && $_GET["page"] != "") {
               // 物件データがあれば
               if( $data_bukken != null ){
 
+
                 // --------------------------------------------
                 // ▼絞り込み処理 START
 
                 $data_new = array();
                 $data_new = getSortOffice( $data_bukken, $form_data );
-                var_dump(count($data_new));
-                // $data_new = $data_bukken;
 
                 // ▲絞り込み処理 END
                 // --------------------------------------------
+
 
                 // ページャー情報を取得
                 $PageNavi =  getPageNavi( $data_new, $page_current );
