@@ -47,32 +47,34 @@ function htmlSearchForm_01() {
 // HTML
 //
 function htmlSearchForm_02() {
-?>
-  <div>
-    <p>こだわり検索 ※複数選択可能</p>
-    <div>
-      <form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
-        <div>
-          <label><input type="checkbox" name="form_02_area[]" value="all"> 全エリア</label>
-          <label><input type="checkbox" name="form_02_area[]" value="01"> 南森町</label>
-          <label><input type="checkbox" name="form_02_area[]" value="02"> 西梅田</label>
-          <label><input type="checkbox" name="form_02_area[]" value="03"> 東梅田</label>
-          <label><input type="checkbox" name="form_02_area[]" value="04"> 梅田</label>
-          <label><input type="checkbox" name="form_02_area[]" value="05"> 中津</label>
-          <label><input type="checkbox" name="form_02_area[]" value="06"> 京橋</label>
-        <div>
-        <div>
-          <label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
-        <div>
-        <div>
-          <input type="button" id="resetBtn" value="条件をクリア">
-          <button type="submit" name="form_submit" value="kodawari">検索する</button>
-        <div>
-      </form>
-    </div>
-  </div>
-<?php
-}
+	?>
+	<section class="SearchSect SearchSect-kodawari">
+		<div class="l-inner search_inner">
+			<p>こだわり検索 ※複数選択可能</p>
+			<div>
+				<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+					<div>
+						<label><input type="checkbox" name="form_02_area[]" value="all"> 全エリア</label>
+						<label><input type="checkbox" name="form_02_area[]" value="01"> 南森町</label>
+						<label><input type="checkbox" name="form_02_area[]" value="02"> 西梅田</label>
+						<label><input type="checkbox" name="form_02_area[]" value="03"> 東梅田</label>
+						<label><input type="checkbox" name="form_02_area[]" value="04"> 梅田</label>
+						<label><input type="checkbox" name="form_02_area[]" value="05"> 中津</label>
+						<label><input type="checkbox" name="form_02_area[]" value="06"> 京橋</label>
+					</div>
+					<div>
+						<label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
+					</div>
+					<div>
+						<input type="button" id="resetBtn" value="条件をクリア">
+						<button type="submit" name="form_submit" value="kodawari">検索する</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<?php
+	}
 
 
 // --------------------------------------------------------
@@ -81,21 +83,22 @@ function htmlSearchForm_02() {
 // HTML
 //
 function htmlSearchForm_03() {
-  ?>
-    <div>
-      <p>テーマで検索</p>
-      <div>
-        <form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
-          <div>
-            <input type="button" id="resetBtn" value="条件をクリア">
-            <button type="submit" name="form_submit" value="theme">検索する</button>
-          <div>
-        </form>
-      </div>
-    </div>
+	?>
+  <section class="SearchSect SearchSect-kodawari">
+	  <div class="l-inner search_inner">
+		  <p>テーマで検索</p>
+		  <div>
+			  <form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+				  <div>
+					  <input type="button" id="resetBtn" value="条件をクリア">
+					  <button type="submit" name="form_submit" value="theme">検索する</button>
+				  </div>
+			  </form>
+		  </div>
+	  </div>
+  </section>
   <?php
   }
-
 
 // --------------------------------------------------------
 // ・NEWを取得する

@@ -70,8 +70,10 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
           <li>オフィス検索</li>
         </ul>
       </div>
-
-      <?php
+      <div class="l-inner search_inner">
+		<h2 class="search_ttl">オフィス物件検索</h2>
+      </div>
+	  <?php
       require_once($Root . "/office_search/html_lib.php");
       // 簡単検索
       htmlSearchForm_01();
