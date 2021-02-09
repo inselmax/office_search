@@ -164,7 +164,7 @@ function htmlOffice( $office_data ) {
             <div class="topicsContent_tit l-clearfix">
               <h1 class="topicsContent_name">{$office_data['bldg_name']}</h1>
             </div>
-            <div class="topicsContent_info l-clearfix"><p class="topicsContent_floor">[数] {$office_data['office_tsubo']} [階数] {$office_data['office_floor']}</p></div>
+            <div class="topicsContent_info l-clearfix"><p class="topicsContent_floor">[坪数] {$office_data['office_tsubo']} [階数] {$office_data['office_floor']}</p></div>
             <p class="topicsContent_desc">{$office_data['office_cmt_tit']}</p>
             <p class="topicsContent_btn ButtonD-light folder">
               <a class="bldg_id" href="javascript:void(0);" onclick="setCookie(this)" data-id="{$office_data['office_id']}">
