@@ -160,10 +160,14 @@ if (!empty($_GET["page"]) && $_GET["page"] != "") {
                 // ▼絞り込み処理 START
 
                 $data_new = array();
-                $data_new = getSortOffice( $data_bukken, $form_data );
+                $data_new = getSearchOffice( $data_bukken, $form_data );
 
                 // ▲絞り込み処理 END
                 // --------------------------------------------
+
+
+                // 検索情報を取出力
+                htmlSearchOption( $data_new, $form_data['form_submit'], $form_data );
 
 
                 // ページャー情報を取得

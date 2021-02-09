@@ -79,12 +79,12 @@ function getOfficeData( $office_ary ) {
 //
 // return Array
 //
-function getSortOffice( $office_ary, $form_data ) {
+function getSearchOffice( $office_ary, $form_data ) {
 
     $ary = array();
-    $sbmit_type = $form_data['form_submit'];
+    $submit_type = $form_data['form_submit'];
 
-    switch( $sbmit_type ) {
+    switch( $submit_type ) {
         case "tsubo":
             $ary = sortTsubo( $office_ary, $form_data );
             break;
