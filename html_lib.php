@@ -10,31 +10,33 @@ function htmlSearchForm_01() {
 	
 	<section class="SearchSect SearchSect-easy">
 		<div class="l-inner search_inner">
-			<p>簡単検索</p>
-			<div>
-				<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
-					<div>
-						<p>エリアを選択</p>
-						<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
-						<label><input type="checkbox" name="area_item[]" value="01"> 南森町</label>
-						<label><input type="checkbox" name="area_item[]" value="02"> 西梅田</label>
-						<label><input type="checkbox" name="area_item[]" value="03"> 東梅田</label>
-						<label><input type="checkbox" name="area_item[]" value="04"> 梅田</label>
-						<label><input type="checkbox" name="area_item[]" value="05"> 中津</label>
-						<label><input type="checkbox" name="area_item[]" value="06"> 京橋</label>
-					</div>
-					<div>
-						<p>広さで検索</p>
-						<input type="text" name="tsubo_min">坪～<input type="text" name="tsubo_max">坪
-						<button type="submit" name="form_submit" value="tsubo">検索する</button>
-					</div>
-					<div>
-						<p>従業員数で検索</p>
-						<input type="text" name="hito_min">人～<input type="text" name="hito_max">人
-						<button type="submit" name="form_submit" value="hito">検索する</button>
-					</div>
-				</form>
-			</div>
+			<dl class="SearchSect_wrap">
+				<dt class="search_subttl search_subttl-01"><span class="SearchSubttl_ico">簡単検索</span></dt>
+				<dd>
+					<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+						<div>
+							<p>エリアを選択</p>
+							<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+							<label><input type="checkbox" name="area_item[]" value="01"> 南森町</label>
+							<label><input type="checkbox" name="area_item[]" value="02"> 西梅田</label>
+							<label><input type="checkbox" name="area_item[]" value="03"> 東梅田</label>
+							<label><input type="checkbox" name="area_item[]" value="04"> 梅田</label>
+							<label><input type="checkbox" name="area_item[]" value="05"> 中津</label>
+							<label><input type="checkbox" name="area_item[]" value="06"> 京橋</label>
+						</div>
+						<div>
+							<p>広さで検索</p>
+							<input type="text" name="tsubo_min">坪～<input type="text" name="tsubo_max">坪
+							<button type="submit" name="form_submit" value="tsubo">検索する</button>
+						</div>
+						<div>
+							<p>従業員数で検索</p>
+							<input type="text" name="hito_min">人～<input type="text" name="hito_max">人
+							<button type="submit" name="form_submit" value="hito">検索する</button>
+						</div>
+					</form>
+				</dd>
+			</dl>
 		</div>
 	</section>
 	<?php

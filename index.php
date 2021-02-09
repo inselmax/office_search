@@ -40,7 +40,62 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
   <script src="/slick/slick.min.js"></script>
  <script src="/lightbox/lightbox.min.js"></script>
   <!-- /javascript -->
-
+  <style>
+	.main-officeSearch .SearchSect {
+		padding: 25px 0;
+	}
+	.main-officeSearch .search_ttl {
+		font-size: 32px;
+	}
+	.main-officeSearch .search_ttl span {
+		position: relative;
+		padding-left: 45px;
+	}
+	.main-officeSearch .search_ttl span::before {
+		background: url(/image_uniq/office_search/search_ttl_ico.png) no-repeat;
+		background-size: contain;
+		content: "";
+		display: inline-block;
+		height: 36px;
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		width: 36px;
+	}
+	.SearchSect_wrap {
+		border: solid 1px #2778be;
+		padding: 10px;
+	}
+	.SearchSect_wrap .search_subttl {
+		background: #3299cf;
+		color: #FFF;
+		padding: 8px 0;
+		font-size: 24px;
+		font-weight: bold;
+	}
+	.SearchSect_wrap .search_subttl .SearchSubttl_ico {
+		position: relative;
+		margin-left: 20px;
+		padding-left: 45px;
+	}
+	.SearchSect_wrap .search_subttl .SearchSubttl_ico::before {
+		background: url(/image_uniq/office_search/subttl01_ico.png) no-repeat;
+		background-size: contain;
+		content: "";
+		display: inline-block;
+		height: 25px;
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		width: 31px;
+}
+  </style>
   <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 <![endif]-->
@@ -72,7 +127,7 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
         </ul>
       </div>
       <div class="l-inner search_inner">
-		<h2 class="search_ttl">オフィス物件検索</h2>
+		<h2 class="search_ttl"><span>オフィス物件検索</span></h2>
       </div>
 	  <?php
       require_once($Root . "/office_search/html_lib.php");
