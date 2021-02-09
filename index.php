@@ -50,6 +50,7 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
 <body>
   <div class="wrap wrap-officeSearch">
 
+
     <?php
     require_once($Root . "/parts/header.php");
     ?>
