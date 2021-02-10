@@ -312,7 +312,9 @@ function sortTheme( $office_ary, $form_data ) {
                 }
             }
             break;
-
+        default:
+            $ary = $office_ary;
+            break;
     }
 
     return $ary;
