@@ -146,13 +146,27 @@ require_once($Root . "/office_search/html_lib.php");
 		height: 24px;
 		width: 24px;
 	}
+	.SearchBy-extent .SearchBy_ttl span:before {
+		background: url(/image_uniq/office_search/extent_ico.png) no-repeat;
+		background-size: contain;
+		height: 22px;
+		width: 22px;
+	}
+	.SearchBy-numb .SearchBy_ttl span:before {
+		background: url(/image_uniq/office_search/numb_ico.png) no-repeat;
+		background-size: contain;
+		height: 19px;
+		width: 24px;
+	}
 	.SearchSect_wrap .search_cont .SearchBy_cont {
 		background: #FFF;
 		display: table-cell;
 		padding: 25px;
 		width: 1130px;
 	}
-
+	.search_cont .SearchBy_cont label {
+		padding-right: 25px;
+	}
 	</style>
   <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>

@@ -19,10 +19,10 @@ function htmlSearchForm_01() {
 							<div class="SearchBy_cont">
 								<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
 								<?php
-              foreach ( AREA_NAME as $key => $value ) {
-                echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
-              }
-              ?>
+									foreach ( AREA_NAME as $key => $value ) {
+										echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+									}
+								?>
 							</div>
 						</div>
 						<div class="SearchBy SearchBy-extent">
