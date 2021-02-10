@@ -241,6 +241,122 @@ function sortTheme( $office_ary, $form_data ) {
 
 
 // --------------------------------------------------------
+// ・検索情報を取得する
+// $sort_data　Array
+// $form_type String
+// $form_data　$_POST
+//
+// return Array
+//
+function getSearchOption( $sort_data, $form_type, $form_data ) {
+
+    // 物件数を格納
+    $res_count = count( $sort_data );
+    $option_name = '';
+    $custom_html = '';
+
+    // 検索フォームで分岐
+    switch( $form_type ) {
+
+        // 坪数で検索
+        case "tsubo":
+
+            $min_tsubo = 0;
+            $max_tsubo = 999;
+
+            if( !empty($form_data['tsubo_min']) && $form_data['tsubo_min'] > $min_tsubo ) {
+            $min_tsubo = $form_data['tsubo_min'];
+            }
+            if( !empty($form_data['tsubo_max']) && $form_data['tsubo_max'] < $max_tsubo ) {
+                $max_tsubo = $form_data['tsubo_max'];
+            }
+
+            $option_name = 'エリア';
+            $option_content = '';
+            if( $form_data['area_item'] ) {
+            foreach ( $form_data['area_item'] as $key => $value ) {
+                if( $key < 1 ) {
+                $option_content .= AERA_NAME[ $value ];
+                }else {
+                $option_content .= ',' . AERA_NAME[ $value ];
+                }
+            }
+            }else {
+            $option_content = '全エリア';
+            }
+
+            $custom_html = <<<EOM
+            <dl>
+                <dt>広さ</dt>
+                <dd>{$min_tsubo}坪～{$max_tsubo}坪</dd>
+            </dl>
+            EOM;
+            break;
+
+        // 従業員数で検索
+        case "hito":
+
+            $min_hito = 0;
+            $max_hito = 999;
+
+            if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_hito ) {
+            $min_hito = $form_data['hito_min'];
+            }
+            if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_hito ) {
+                $max_hito = $form_data['hito_max'];
+            }
+
+            $option_name = 'エリア';
+            $option_content = '';
+            if( $form_data['area_item'] ) {
+            foreach ( $form_data['area_item'] as $key => $value ) {
+                if( $key < 1 ) {
+                $option_content .= AERA_NAME[ $value ];
+                }else {
+                $option_content .= ',' . AERA_NAME[ $value ];
+                }
+            }
+            }else {
+            $option_content = '全エリア';
+            }
+
+            $custom_html = <<<EOM
+            <dl>
+                <dt>従業員数</dt>
+                <dd>{$min_hito}人～{$max_hito}人</dd>
+            </dl>
+            EOM;
+            break;
+
+        // こだわり検索
+        case "kodawari":
+            $option_name = '検索条件';
+            $option_content = 'hoge';
+            break;
+
+        // テーマで検索
+        case "theme":
+            $option_name = '検索条件';
+            $option_content = 'hoge';
+            break;
+
+        default:
+            break;
+    }
+
+    $search_option = array(
+        "count" => $res_count,
+        "option_name" => $option_name,
+        "option_content" => $option_content,
+        "custom_html" => $custom_html
+    );
+
+    return $search_option;
+
+}
+
+
+// --------------------------------------------------------
 // ・ページナビの情報を取得する
 // $office_data Array
 // $page_current Int

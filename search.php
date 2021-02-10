@@ -166,8 +166,10 @@ if (!empty($_GET["page"]) && $_GET["page"] != "") {
                 // --------------------------------------------
 
 
-                // 検索情報を取出力
-                htmlSearchOption( $data_new, $form_data['form_submit'], $form_data );
+                // 検索情報を取得・出力
+                $search_option = array();
+                $search_option = getSearchOption( $data_new, $form_data['form_submit'], $form_data );
+                htmlSearchOption( $search_option );
 
 
                 // ページャー情報を取得
