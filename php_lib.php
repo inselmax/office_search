@@ -370,11 +370,12 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $option_name = 'エリア';
             $option_content = '';
             if( $form_data['area_item'] ) {
-            foreach ( $form_data['area_item'] as $key => $value ) {
-                if( $key < 1 ) {
-                    $option_content .= AREA_NAME[ $value ];
-                }else {
-                    $option_content .= ',' . AREA_NAME[ $value ];
+                foreach ( $form_data['area_item'] as $key => $value ) {
+                    if( $key < 1 ) {
+                        $option_content .= AREA_NAME[ $value ];
+                    }else {
+                        $option_content .= ',' . AREA_NAME[ $value ];
+                    }
                 }
             }else {
                 $option_content = '全エリア';
@@ -395,7 +396,7 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $max_hito = 999;
 
             if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_hito ) {
-            $min_hito = $form_data['hito_min'];
+                $min_hito = $form_data['hito_min'];
             }
             if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_hito ) {
                 $max_hito = $form_data['hito_max'];
@@ -404,15 +405,15 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $option_name = 'エリア';
             $option_content = '';
             if( $form_data['area_item'] ) {
-            foreach ( $form_data['area_item'] as $key => $value ) {
-                if( $key < 1 ) {
-                $option_content .= AREA_NAME[ $value ];
-                }else {
-                $option_content .= ',' . AREA_NAME[ $value ];
+                foreach ( $form_data['area_item'] as $key => $value ) {
+                    if( $key < 1 ) {
+                        $option_content .= AREA_NAME[ $value ];
+                    }else {
+                        $option_content .= ',' . AREA_NAME[ $value ];
+                    }
                 }
-            }
             }else {
-            $option_content = '全エリア';
+                $option_content = '全エリア';
             }
 
             $custom_html = <<<EOM
@@ -428,15 +429,46 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $option_name = '検索条件';
             $option_content = '';
             if( $form_data['area_item'] ) {
-            foreach ( $form_data['area_item'] as $key => $value ) {
-                if( $key < 1 ) {
-                    $option_content .= AREA_NAME[ $value ];
-                }else {
-                    $option_content .= ',' . AREA_NAME[ $value ];
+                foreach ( $form_data['area_item'] as $key => $value ) {
+                    if( $key < 1 ) {
+                        $option_content .= AREA_NAME[ $value ];
+                    }else {
+                        $option_content .= ',' . AREA_NAME[ $value ];
+                    }
                 }
             }else {
                 $option_content = '全エリア';
             }
+
+            // その他オプション
+            if( $form_data['office_option'] ) {
+                foreach ( $form_data['office_option'] as $key => $value ) {
+                    $option_content .= ',' . BLDG_OPTION[ $value ];
+                }
+            }
+
+            // 1Fコンビニ
+            if( $form_data['office_option_10fmin'] ) {
+                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_10fmin'] ];
+            }
+            // 高層階10F以上
+            if( $form_data['office_option_10fmin'] ) {
+                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_10fmin'] ];
+            }
+            // 低層階3F以上
+            if( $form_data['office_option_3fmin'] ) {
+                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_3fmin'] ];
+            }
+            // 最上階
+            if( $form_data['office_option_fmax'] ) {
+                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_fmax'] ];
+            }
+            // 1F店舗空物件
+            if( $form_data['office_option_1fshop'] ) {
+                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_1fshop'] ];
+            }
+
+
             break;
 
         // テーマで検索
