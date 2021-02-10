@@ -28,19 +28,19 @@ function htmlSearchForm_01() {
 						<div class="SearchBy SearchBy-extent">
 							<div class="SearchBy_ttl"><span>広さで検索</span></div>
 							<div class="SearchBy_cont">
-								<p>
-								<a href="/image_uniq/graph_img.png" class="search_size_lightbox" data-lightbox="areaimg" rel="lightbox">業種ごとの1人当たりの目安坪数</a>
+								<p class="u-pb5">
+									<a href="/image_uniq/graph_img.png" class="search_size_lightbox" data-lightbox="areaimg" rel="lightbox">業種ごとの1人当たりの目安坪数</a>
 								</p>
-								<input type="text" name="tsubo_min">坪～<input type="text" name="tsubo_max">坪
-								<button type="submit" name="form_submit" value="tsubo">検索する</button>
+								<input type="text" name="tsubo_min"> 坪～　<input type="text" name="tsubo_max"> 坪
+								<button type="submit" name="form_submit" value="tsubo" class="SearchBtn SearchBtn-blue" ><img src="/image_uniq/office_search/search_btn.png" alt=""></button>
 							</div>
 						</div>
 						<div class="SearchBy SearchBy-numb">
 							<div class="SearchBy_ttl"><span>従業員数で検索</span></div>
 							<div class="SearchBy_cont">
-								<p class="small-txt">※1人あたり3坪計算</p>
-								<input type="text" name="hito_min">人～<input type="text" name="hito_max">人
-								<button type="submit" name="form_submit" value="hito">検索する</button>
+								<p class="small-txt u-pb5">※1人あたり3坪計算</p>
+								<input type="text" name="hito_min"> 人～　<input type="text" name="hito_max"> 人
+								<button type="submit" name="form_submit" value="hito" class="SearchBtn SearchBtn-blue" ><img src="/image_uniq/office_search/search_btn.png" alt=""></button>
 							</div>
 						</div>
 					</form>

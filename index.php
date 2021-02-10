@@ -124,7 +124,7 @@ require_once($Root . "/office_search/html_lib.php");
 		color: #FFF;
 		display: table-cell;
 		font-size: 17px;
-		font-weight: bold;
+		font-weight: 600;
 		padding-left: 47px;
 		position: relative;
 		vertical-align: middle;
@@ -164,8 +164,25 @@ require_once($Root . "/office_search/html_lib.php");
 		padding: 25px;
 		width: 1130px;
 	}
+	.search_cont .SearchBy_cont .search_size_lightbox {
+		padding-left: 0;
+	}
 	.search_cont .SearchBy_cont label {
 		padding-right: 25px;
+	}
+	.search_cont .SearchBy_cont input {
+		border: solid 1px #dedede;
+		margin-right: 8px;
+		padding: 8px 0;
+		max-width: 100px
+	}
+	.search_cont .SearchBy_cont .SearchBtn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		margin-left: 15px;
+		padding: 0;
+		vertical-align: middle;
 	}
 	</style>
   <!--[if lt IE 9]>
