@@ -61,24 +61,31 @@ function htmlSearchForm_02() {
 	?>
 	<section class="SearchSect SearchSect-kodawari">
 		<div class="l-inner search_inner">
-			<p>こだわり検索 ※複数選択可能</p>
-			<div>
-				<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+			<dl class="SearchSect_wrap">
+				<dt class="search_subttl search_subttl-01"><span class="SearchSubttl_ico">こだわり検索</span> ※複数選択可能</dt>
+				<dd class="search_cont">
+					<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+					<div class="SearchBy SearchBy-area">
+						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
+						<div class="SearchBy_cont">
+							<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+								<?php
+									foreach ( AREA_NAME as $key => $value ) {
+									echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+								}
+								?>
+							</div>
+						</div>
 					<div>
-            <label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
-            <?php
-            foreach ( AREA_NAME as $key => $value ) {
-              echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
-            }
-            ?>
+					<div class="SearchBy SearchBy-kodawari">
+						<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
+							<div class="SearchBy_cont">
+								<label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
+							</div>
+						</div>
 					</div>
-					<div>
-						<label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
-					</div>
-					<div>
-            <button id="resetBtn">条件をクリア</button>
-						<button type="submit" name="form_submit" value="kodawari">検索する</button>
-					</div>
+					<button id="resetBtn">条件をクリア</button>
+					<button type="submit" name="form_submit" value="kodawari">検索する</button>
 				</form>
 			</div>
 		</div>
