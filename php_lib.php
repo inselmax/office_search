@@ -63,7 +63,7 @@ function getOfficeData( $office_ary ) {
         'office_state_html' => getHtmlStatus( $office_ary['gsx$状態']['$t'] ), // 空き状態（HTML）
         'office_cmt_tit' => $office_ary['gsx$物件コメントタイトル']['$t'], // 物件コメントタイトル
         // エリア情報を格納・取得
-        'area_name' => BLDG_AERA_NAME[$bldg_id],
+        'area_name' => BLDG_AREA_NAME[$bldg_id],
         'area_class' => BLDG_AERA_CLASS[$bldg_id]
     );
 
@@ -276,9 +276,9 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             if( $form_data['area_item'] ) {
             foreach ( $form_data['area_item'] as $key => $value ) {
                 if( $key < 1 ) {
-                $option_content .= AERA_NAME[ $value ];
+                $option_content .= AREA_NAME[ $value ];
                 }else {
-                $option_content .= ',' . AERA_NAME[ $value ];
+                $option_content .= ',' . AREA_NAME[ $value ];
                 }
             }
             }else {
@@ -311,9 +311,9 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             if( $form_data['area_item'] ) {
             foreach ( $form_data['area_item'] as $key => $value ) {
                 if( $key < 1 ) {
-                $option_content .= AERA_NAME[ $value ];
+                $option_content .= AREA_NAME[ $value ];
                 }else {
-                $option_content .= ',' . AERA_NAME[ $value ];
+                $option_content .= ',' . AREA_NAME[ $value ];
                 }
             }
             }else {
@@ -336,8 +336,8 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
 
         // テーマで検索
         case "theme":
-            $option_name = '検索条件';
-            $option_content = 'hoge';
+            $option_name = 'テーマ';
+            $option_content = SEARCH_THEME_NAME[$form_data['theme_type']];
             break;
 
         default:

@@ -13,16 +13,15 @@ function htmlSearchForm_01() {
 			<dl class="SearchSect_wrap">
 				<dt class="search_subttl search_subttl-01"><span class="SearchSubttl_ico">簡単検索</span></dt>
 				<dd>
-					<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+					<form id="form_kantan" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 						<div>
 							<p>エリアを選択</p>
 							<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
-							<label><input type="checkbox" name="area_item[]" value="01"> 南森町</label>
-							<label><input type="checkbox" name="area_item[]" value="02"> 西梅田</label>
-							<label><input type="checkbox" name="area_item[]" value="03"> 東梅田</label>
-							<label><input type="checkbox" name="area_item[]" value="04"> 梅田</label>
-							<label><input type="checkbox" name="area_item[]" value="05"> 中津</label>
-							<label><input type="checkbox" name="area_item[]" value="06"> 京橋</label>
+							<?php
+              foreach ( AREA_NAME as $key => $value ) {
+                echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+              }
+              ?>
 						</div>
 						<div>
 							<p>広さで検索</p>
@@ -39,8 +38,8 @@ function htmlSearchForm_01() {
 			</dl>
 		</div>
 	</section>
-	<?php
-	}
+<?php
+}
 
 
 // --------------------------------------------------------
@@ -54,29 +53,28 @@ function htmlSearchForm_02() {
 		<div class="l-inner search_inner">
 			<p>こだわり検索 ※複数選択可能</p>
 			<div>
-				<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+				<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 					<div>
-						<label><input type="checkbox" name="form_02_area[]" value="all"> 全エリア</label>
-						<label><input type="checkbox" name="form_02_area[]" value="01"> 南森町</label>
-						<label><input type="checkbox" name="form_02_area[]" value="02"> 西梅田</label>
-						<label><input type="checkbox" name="form_02_area[]" value="03"> 東梅田</label>
-						<label><input type="checkbox" name="form_02_area[]" value="04"> 梅田</label>
-						<label><input type="checkbox" name="form_02_area[]" value="05"> 中津</label>
-						<label><input type="checkbox" name="form_02_area[]" value="06"> 京橋</label>
+            <label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+            <?php
+            foreach ( AREA_NAME as $key => $value ) {
+              echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+            }
+            ?>
 					</div>
 					<div>
 						<label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
 					</div>
 					<div>
-						<input type="button" id="resetBtn" value="条件をクリア">
+            <button id="resetBtn">条件をクリア</button>
 						<button type="submit" name="form_submit" value="kodawari">検索する</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</section>
-	<?php
-	}
+<?php
+}
 
 
 // --------------------------------------------------------
@@ -90,17 +88,26 @@ function htmlSearchForm_03() {
 	  <div class="l-inner search_inner">
 		  <p>テーマで検索</p>
 		  <div>
-			  <form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+			  <form id="form_theme" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 				  <div>
-					  <input type="button" id="resetBtn" value="条件をクリア">
-					  <button type="submit" name="form_submit" value="theme">検索する</button>
+            <?php
+            foreach ( SEARCH_THEME_NAME as $key => $value ) {
+              $checked = '';
+              if( $key < 1 ) {
+                $checked = 'checked';
+              }
+              echo '<label class="theme_label"><input type="radio" name="theme_type" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '>' . $value . '</label>';
+            }
+            ?>
+            <input type="hidden" name="form_submit" value="theme">
+					  <input class="hide" type="submit">
 				  </div>
 			  </form>
 		  </div>
 	  </div>
   </section>
-  <?php
-  }
+<?php
+}
 
 // --------------------------------------------------------
 // ・NEWを取得する
