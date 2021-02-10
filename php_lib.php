@@ -215,7 +215,21 @@ function sortHito( $office_ary, $form_data ) {
 //
 function sortKodawari( $office_ary, $form_data ) {
 
-    $ary = array();
+    $ary = $office_ary;
+
+    // エリアで絞り込み
+    if( empty( $form_data['area_all'] ) ) {
+        if( $form_data['area_item'] ) {
+
+            $ary = array();
+
+            foreach ( $office_ary as $key => $value ) {
+                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item'], true) ) {
+                    array_push($ary, $value);
+                }
+            }
+        }
+    }
 
 
 
@@ -275,7 +289,8 @@ function sortTheme( $office_ary, $form_data ) {
         // 1F店舗空物件
         case "05":
             foreach ( $office_ary as $key => $value ) {
-                if ( $value['gsx$階数']['$t'] === '1' ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if (  $bldg_id === '04' && $value['gsx$階数']['$t'] === '1' ) {
                     array_push($ary, $value);
                 }
             }
