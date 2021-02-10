@@ -7,7 +7,7 @@
 //
 function htmlSearchForm_01() {
 	?>
-	
+
 	<section class="SearchSect SearchSect-easy">
 		<div class="l-inner search_inner">
 			<dl class="SearchSect_wrap">
@@ -243,7 +243,10 @@ function htmlSearchOption( $sort_data, $form_type, $form_data ) {
   $option_name = '';
   $custom_html = '';
 
+  // 検索フォームで分岐
   switch( $form_type ) {
+
+    // 坪数で検索
     case "tsubo":
 
         $min_tsubo = 0;
@@ -257,7 +260,19 @@ function htmlSearchOption( $sort_data, $form_type, $form_data ) {
         }
 
         $option_name = 'エリア';
-        $option_content = 'hoge';
+        $option_content = '';
+        if( $form_data['area_item'] ) {
+          foreach ( $form_data['area_item'] as $key => $value ) {
+            if( $key < 1 ) {
+              $option_content .= AERA_NAME[ $value ];
+            }else {
+              $option_content .= ',' . AERA_NAME[ $value ];
+            }
+          }
+        }else {
+          $option_content = '全エリア';
+        }
+
         $custom_html = <<<EOM
           <dl>
             <dt>広さ</dt>
@@ -266,6 +281,7 @@ function htmlSearchOption( $sort_data, $form_type, $form_data ) {
         EOM;
         break;
 
+    // 従業員数で検索
     case "hito":
 
         $min_hito = 0;
@@ -279,7 +295,19 @@ function htmlSearchOption( $sort_data, $form_type, $form_data ) {
         }
 
         $option_name = 'エリア';
-        $option_content = 'hoge';
+        $option_content = '';
+        if( $form_data['area_item'] ) {
+          foreach ( $form_data['area_item'] as $key => $value ) {
+            if( $key < 1 ) {
+              $option_content .= AERA_NAME[ $value ];
+            }else {
+              $option_content .= ',' . AERA_NAME[ $value ];
+            }
+          }
+        }else {
+          $option_content = '全エリア';
+        }
+
         $custom_html = <<<EOM
           <dl>
             <dt>従業員数</dt>
@@ -288,11 +316,13 @@ function htmlSearchOption( $sort_data, $form_type, $form_data ) {
         EOM;
         break;
 
+    // こだわり検索
     case "kodawari":
         $option_name = '検索条件';
         $option_content = 'hoge';
         break;
 
+    // テーマで検索
     case "theme":
         $option_name = '検索条件';
         $option_content = 'hoge';
