@@ -361,7 +361,7 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $max_tsubo = 999;
 
             if( !empty($form_data['tsubo_min']) && $form_data['tsubo_min'] > $min_tsubo ) {
-            $min_tsubo = $form_data['tsubo_min'];
+                $min_tsubo = $form_data['tsubo_min'];
             }
             if( !empty($form_data['tsubo_max']) && $form_data['tsubo_max'] < $max_tsubo ) {
                 $max_tsubo = $form_data['tsubo_max'];
@@ -372,13 +372,12 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             if( $form_data['area_item'] ) {
             foreach ( $form_data['area_item'] as $key => $value ) {
                 if( $key < 1 ) {
-                $option_content .= AREA_NAME[ $value ];
+                    $option_content .= AREA_NAME[ $value ];
                 }else {
-                $option_content .= ',' . AREA_NAME[ $value ];
+                    $option_content .= ',' . AREA_NAME[ $value ];
                 }
-            }
             }else {
-            $option_content = '全エリア';
+                $option_content = '全エリア';
             }
 
             $custom_html = <<<EOM
@@ -427,7 +426,17 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
         // こだわり検索
         case "kodawari":
             $option_name = '検索条件';
-            $option_content = 'hoge';
+            $option_content = '';
+            if( $form_data['area_item'] ) {
+            foreach ( $form_data['area_item'] as $key => $value ) {
+                if( $key < 1 ) {
+                    $option_content .= AREA_NAME[ $value ];
+                }else {
+                    $option_content .= ',' . AREA_NAME[ $value ];
+                }
+            }else {
+                $option_content = '全エリア';
+            }
             break;
 
         // テーマで検索
