@@ -106,7 +106,7 @@ function htmlSearchForm_03() {
               if( $key < 1 ) {
                 $checked = 'checked';
               }
-              echo '<label class="theme_label"><input type="radio" name="theme_type" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '>' . $value . '</label>';
+              echo '<label class="theme_label"><input class="hide" type="radio" name="theme_type" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '>' . $value . '</label>';
             }
             ?>
             <input type="hidden" name="form_submit" value="theme">
