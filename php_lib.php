@@ -231,7 +231,49 @@ function sortKodawari( $office_ary, $form_data ) {
         }
     }
 
+    // 条件で絞り込み
+    foreach ( $ary as $key => $value ) {
 
+        // ビルIDを取得
+        $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+
+        // 1Fコンビニ
+        if( $form_data['office_option_1fk'] ) {
+            if ( $bldg_id != "01" && $bldg_id != "05" ) {
+                unset($ary[$key]);
+            }
+        }
+
+        // 低階層(3階以上)
+        if( $form_data['office_option_3fmin'] ) {
+            if ( intval($value['gsx$階数']['$t']) <= 3 ) {
+                unset($ary[$key]);
+            }
+        }
+
+        // 高階層(10階以上)
+        if( $form_data['office_option_10fmin'] ) {
+            if ( intval($value['gsx$階数']['$t']) <= 10 ) {
+                unset($ary[$key]);
+            }
+        }
+
+        // 最上階
+        if( $form_data['office_option_fmax'] ) {
+            if ( $value['gsx$階数']['$t'] !== BLDG_TOP_FLOOR[$bldg_id] ) {
+                unset($ary[$key]);
+            }
+        }
+
+        // 1F店舗空物件
+        if( $form_data['office_option_1fshop'] ) {
+            if ( $bldg_id == "04" && $value['gsx$階数']['$t'] == '1' ) {
+            }else {
+                unset($ary[$key]);
+            }
+        }
+
+    }
 
     return $ary;
 }
@@ -448,8 +490,8 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             }
 
             // 1Fコンビニ
-            if( $form_data['office_option_10fmin'] ) {
-                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_10fmin'] ];
+            if( $form_data['office_option_1fk'] ) {
+                $option_content .= ',' . BLDG_OPTION[ $form_data['office_option_1fk'] ];
             }
             // 高層階10F以上
             if( $form_data['office_option_10fmin'] ) {
