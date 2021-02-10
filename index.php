@@ -42,6 +42,7 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
   <!-- /javascript -->
   <style>
 	.main-officeSearch .SearchSect {
+		font-size: 16px;
 		padding: 25px 0;
 	}
 	.main-officeSearch .search_ttl {
@@ -99,6 +100,43 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
 		background: #eff6f8;
 		padding: 15px;
 	}
+	.SearchSect_wrap .search_cont .SearchBy {
+		padding-bottom: 25px;
+	}
+	.SearchSect_wrap .search_cont .SearchBy_ttl {
+		background: #047298;
+		color: #FFF;
+		display: table-cell;
+		font-size: 17px;
+		font-weight: bold;
+		padding-left: 47px;
+		position: relative;
+		vertical-align: middle;
+		width: 250px;
+	}
+	.SearchBy .SearchBy_ttl span::before {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: 7%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+	}
+	.SearchBy-area .SearchBy_ttl span:before {
+		background: url(/image_uniq/office_search/area_ico.png) no-repeat;
+		background-size: contain;
+		height: 24px;
+		width: 24px;
+	}
+	.SearchSect_wrap .search_cont .SearchBy_cont {
+		background: #FFF;
+		display: table-cell;
+		padding: 25px;
+		width: 1130px;
+	}
+
 	</style>
   <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>

@@ -15,7 +15,7 @@ function htmlSearchForm_01() {
 				<dd class="search_cont">
 					<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 						<div class="SearchBy SearchBy-area">
-							<div class="SearchBy_ttl"><span>エリアを選択</span></div>
+							<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 							<div class="SearchBy_cont">
 								<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
 								<label><input type="checkbox" name="area_item[]" value="01"> 南森町</label>
@@ -28,13 +28,21 @@ function htmlSearchForm_01() {
 						</div>
 						<div class="SearchBy SearchBy-extent">
 							<div class="SearchBy_ttl"><span>広さで検索</span></div>
-							<input type="text" name="tsubo_min">坪～<input type="text" name="tsubo_max">坪
-							<button type="submit" name="form_submit" value="tsubo">検索する</button>
+							<div class="SearchBy_cont">
+								<p>
+								<a href="/image_uniq/graph_img.png" class="search_size_lightbox" data-lightbox="areaimg" rel="lightbox">業種ごとの1人当たりの目安坪数</a>
+								</p>
+								<input type="text" name="tsubo_min">坪～<input type="text" name="tsubo_max">坪
+								<button type="submit" name="form_submit" value="tsubo">検索する</button>
+							</div>
 						</div>
 						<div class="SearchBy SearchBy-numb">
-							<p>従業員数で検索</p>
-							<input type="text" name="hito_min">人～<input type="text" name="hito_max">人
-							<button type="submit" name="form_submit" value="hito">検索する</button>
+							<div class="SearchBy_ttl"><span>従業員数で検索</span></div>
+							<div class="SearchBy_cont">
+								<p class="small-txt">※1人あたり3坪計算</p>
+								<input type="text" name="hito_min">人～<input type="text" name="hito_max">人
+								<button type="submit" name="form_submit" value="hito">検索する</button>
+							</div>
 						</div>
 					</form>
 				</dd>
