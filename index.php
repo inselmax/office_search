@@ -94,8 +94,12 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
 		-webkit-transform: translateY(-50%);
 		-ms-transform: translateY(-50%);
 		width: 31px;
-}
-  </style>
+	}
+	.SearchSect_wrap .search_cont {
+		background: #eff6f8;
+		padding: 15px;
+	}
+	</style>
   <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 <![endif]-->
