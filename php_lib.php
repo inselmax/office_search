@@ -124,7 +124,7 @@ function sortTsubo( $office_ary, $form_data ) {
             $ary = array();
 
             foreach ( $office_ary as $key => $value ) {
-                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item']) ) {
+                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item'], true) ) {
                     array_push($ary, $value);
                 }
             }
@@ -174,7 +174,7 @@ function sortHito( $office_ary, $form_data ) {
             $ary = array();
 
             foreach ( $office_ary as $key => $value ) {
-                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item']) ) {
+                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item'], true) ) {
                     array_push($ary, $value);
                 }
             }
@@ -234,7 +234,76 @@ function sortTheme( $office_ary, $form_data ) {
 
     $ary = array();
 
+    switch( $form_data['theme_type'] ) {
 
+        // SOHO・創業オフィス
+        case "01":
+            foreach ( $office_ary as $key => $value ) {
+                $icon_array = array();
+                $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+                if ( in_array( 'SOHO', $icon_array, true) ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 駅チカ･駅直結
+        case "02":
+
+            break;
+
+        // 貸会議室あり
+        case "03":
+            foreach ( $office_ary as $key => $value ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if ( $bldg_id === '01' || $bldg_id === '05' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 貸駐車場あり
+        case "04":
+            foreach ( $office_ary as $key => $value ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if ( $bldg_id === '02' || $bldg_id === '03' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // １F店舗空物件
+        case "05":
+
+            break;
+
+        // 外装・内装リニューアル
+        case "06":
+            foreach ( $office_ary as $key => $value ) {
+                $icon_array = array();
+                $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+                if ( in_array( '外装・内装リニューアル', $icon_array, true) ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // １Fコンビニ
+        case "07":
+            foreach ( $office_ary as $key => $value ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if ( $bldg_id === '01' || $bldg_id === '05' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 管理人常駐
+        case "08":
+
+            break;
+
+    }
 
     return $ary;
 }
