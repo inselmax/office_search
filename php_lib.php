@@ -249,7 +249,7 @@ function sortTheme( $office_ary, $form_data ) {
 
         // 駅チカ･駅直結
         case "02":
-
+            $ary = $office_ary;
             break;
 
         // 貸会議室あり
@@ -272,9 +272,13 @@ function sortTheme( $office_ary, $form_data ) {
             }
             break;
 
-        // １F店舗空物件
+        // 1F店舗空物件
         case "05":
-
+            foreach ( $office_ary as $key => $value ) {
+                if ( $value['gsx$階数']['$t'] === '1' ) {
+                    array_push($ary, $value);
+                }
+            }
             break;
 
         // 外装・内装リニューアル
@@ -300,7 +304,13 @@ function sortTheme( $office_ary, $form_data ) {
 
         // 管理人常駐
         case "08":
-
+            foreach ( $office_ary as $key => $value ) {
+                $icon_array = array();
+                $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+                if ( in_array( 'G', $icon_array, true) ) {
+                    array_push($ary, $value);
+                }
+            }
             break;
 
     }
