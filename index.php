@@ -2,6 +2,10 @@
 @session_start();
 
 $Root = $_SERVER['DOCUMENT_ROOT'];
+
+require_once($Root . "/office_search/config.php");
+require_once($Root . "/office_search/html_lib.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -38,9 +42,21 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
   <script src="/js/jquery.matchHeight.js"></script>
   <script src="/js/common.js"></script>
   <script src="/slick/slick.min.js"></script>
- <script src="/lightbox/lightbox.min.js"></script>
+  <script src="/lightbox/lightbox.min.js"></script>
   <!-- /javascript -->
+
+  <script>
+    $(function(){
+      $('.theme_label').on( 'click', function(){
+        $('#form_theme').submit();
+      });
+    });
+  </script>
+
   <style>
+  .hide {
+    display: none;
+  }
 	.main-officeSearch .SearchSect {
 		font-size: 16px;
 		padding: 25px 0;
@@ -172,7 +188,6 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
 		<h2 class="search_ttl"><span>オフィス物件検索</span></h2>
       </div>
 	  <?php
-      require_once($Root . "/office_search/html_lib.php");
       // 簡単検索
       htmlSearchForm_01();
       // こだわり検索

@@ -13,17 +13,16 @@ function htmlSearchForm_01() {
 			<dl class="SearchSect_wrap">
 				<dt class="search_subttl search_subttl-01"><span class="SearchSubttl_ico">簡単検索</span></dt>
 				<dd class="search_cont">
-					<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+					<form id="form_kantan" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 						<div class="SearchBy SearchBy-area">
 							<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 							<div class="SearchBy_cont">
 								<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
-								<label><input type="checkbox" name="area_item[]" value="01"> 南森町</label>
-								<label><input type="checkbox" name="area_item[]" value="02"> 西梅田</label>
-								<label><input type="checkbox" name="area_item[]" value="03"> 東梅田</label>
-								<label><input type="checkbox" name="area_item[]" value="04"> 梅田</label>
-								<label><input type="checkbox" name="area_item[]" value="05"> 中津</label>
-								<label><input type="checkbox" name="area_item[]" value="06"> 京橋</label>
+								<?php
+              foreach ( AREA_NAME as $key => $value ) {
+                echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+              }
+              ?>
 							</div>
 						</div>
 						<div class="SearchBy SearchBy-extent">
@@ -49,8 +48,8 @@ function htmlSearchForm_01() {
 			</dl>
 		</div>
 	</section>
-	<?php
-	}
+<?php
+}
 
 
 // --------------------------------------------------------
@@ -64,29 +63,28 @@ function htmlSearchForm_02() {
 		<div class="l-inner search_inner">
 			<p>こだわり検索 ※複数選択可能</p>
 			<div>
-				<form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+				<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 					<div>
-						<label><input type="checkbox" name="form_02_area[]" value="all"> 全エリア</label>
-						<label><input type="checkbox" name="form_02_area[]" value="01"> 南森町</label>
-						<label><input type="checkbox" name="form_02_area[]" value="02"> 西梅田</label>
-						<label><input type="checkbox" name="form_02_area[]" value="03"> 東梅田</label>
-						<label><input type="checkbox" name="form_02_area[]" value="04"> 梅田</label>
-						<label><input type="checkbox" name="form_02_area[]" value="05"> 中津</label>
-						<label><input type="checkbox" name="form_02_area[]" value="06"> 京橋</label>
+            <label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+            <?php
+            foreach ( AREA_NAME as $key => $value ) {
+              echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+            }
+            ?>
 					</div>
 					<div>
 						<label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
 					</div>
 					<div>
-						<input type="button" id="resetBtn" value="条件をクリア">
+            <button id="resetBtn">条件をクリア</button>
 						<button type="submit" name="form_submit" value="kodawari">検索する</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</section>
-	<?php
-	}
+<?php
+}
 
 
 // --------------------------------------------------------
@@ -100,17 +98,26 @@ function htmlSearchForm_03() {
 	  <div class="l-inner search_inner">
 		  <p>テーマで検索</p>
 		  <div>
-			  <form action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+			  <form id="form_theme" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 				  <div>
-					  <input type="button" id="resetBtn" value="条件をクリア">
-					  <button type="submit" name="form_submit" value="theme">検索する</button>
+            <?php
+            foreach ( SEARCH_THEME_NAME as $key => $value ) {
+              $checked = '';
+              if( $key < 1 ) {
+                $checked = 'checked';
+              }
+              echo '<label class="theme_label"><input type="radio" name="theme_type" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '>' . $value . '</label>';
+            }
+            ?>
+            <input type="hidden" name="form_submit" value="theme">
+					  <input class="hide" type="submit">
 				  </div>
 			  </form>
 		  </div>
 	  </div>
   </section>
-  <?php
-  }
+<?php
+}
 
 // --------------------------------------------------------
 // ・NEWを取得する
@@ -238,119 +245,23 @@ function htmlPageNavi( $page_current, $total_page ) {
 
 // --------------------------------------------------------
 // ・検索情報
-// $sort_data　Array
-// $form_type String
-// $form_data　$_POST
+// $search_option　Array
 //
 // HTML
 //
-function htmlSearchOption( $sort_data, $form_type, $form_data ) {
-
-  // 物件数を格納
-  $res_count = count( $sort_data );
-  $option_name = '';
-  $custom_html = '';
-
-  // 検索フォームで分岐
-  switch( $form_type ) {
-
-    // 坪数で検索
-    case "tsubo":
-
-        $min_tsubo = 0;
-        $max_tsubo = 999;
-
-        if( !empty($form_data['tsubo_min']) && $form_data['tsubo_min'] > $min_tsubo ) {
-          $min_tsubo = $form_data['tsubo_min'];
-        }
-        if( !empty($form_data['tsubo_max']) && $form_data['tsubo_max'] < $max_tsubo ) {
-            $max_tsubo = $form_data['tsubo_max'];
-        }
-
-        $option_name = 'エリア';
-        $option_content = '';
-        if( $form_data['area_item'] ) {
-          foreach ( $form_data['area_item'] as $key => $value ) {
-            if( $key < 1 ) {
-              $option_content .= AERA_NAME[ $value ];
-            }else {
-              $option_content .= ',' . AERA_NAME[ $value ];
-            }
-          }
-        }else {
-          $option_content = '全エリア';
-        }
-
-        $custom_html = <<<EOM
-          <dl>
-            <dt>広さ</dt>
-            <dd>{$min_tsubo}坪～{$max_tsubo}坪</dd>
-          </dl>
-        EOM;
-        break;
-
-    // 従業員数で検索
-    case "hito":
-
-        $min_hito = 0;
-        $max_hito = 999;
-
-        if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_hito ) {
-          $min_hito = $form_data['hito_min'];
-        }
-        if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_hito ) {
-            $max_hito = $form_data['hito_max'];
-        }
-
-        $option_name = 'エリア';
-        $option_content = '';
-        if( $form_data['area_item'] ) {
-          foreach ( $form_data['area_item'] as $key => $value ) {
-            if( $key < 1 ) {
-              $option_content .= AERA_NAME[ $value ];
-            }else {
-              $option_content .= ',' . AERA_NAME[ $value ];
-            }
-          }
-        }else {
-          $option_content = '全エリア';
-        }
-
-        $custom_html = <<<EOM
-          <dl>
-            <dt>従業員数</dt>
-            <dd>{$min_hito}人～{$max_hito}人</dd>
-          </dl>
-        EOM;
-        break;
-
-    // こだわり検索
-    case "kodawari":
-        $option_name = '検索条件';
-        $option_content = 'hoge';
-        break;
-
-    // テーマで検索
-    case "theme":
-        $option_name = '検索条件';
-        $option_content = 'hoge';
-        break;
-
-    default:
-        break;
-  }
+function htmlSearchOption( $search_option ) {
 
   $option_html = <<<EOM
     <div>
       <dl>
         <dt>検索結果</dt>
-        <dd>{$res_count}件</dd>
+        <dd>{$search_option['count']}件</dd>
       </dl>
       <dl>
-        <dt>{$option_name}</dt>
-        <dd>{$option_content}</dd>
+        <dt>{$search_option['option_name']}</dt>
+        <dd>{$search_option['option_content']}</dd>
       </dl>
-      {$custom_html}
+      {$search_option['custom_html']}
       <p><a href="/office_search/">戻る</a></p>
     </div>
   EOM;

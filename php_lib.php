@@ -63,7 +63,7 @@ function getOfficeData( $office_ary ) {
         'office_state_html' => getHtmlStatus( $office_ary['gsx$状態']['$t'] ), // 空き状態（HTML）
         'office_cmt_tit' => $office_ary['gsx$物件コメントタイトル']['$t'], // 物件コメントタイトル
         // エリア情報を格納・取得
-        'area_name' => BLDG_AERA_NAME[$bldg_id],
+        'area_name' => BLDG_AREA_NAME[$bldg_id],
         'area_class' => BLDG_AERA_CLASS[$bldg_id]
     );
 
@@ -124,7 +124,7 @@ function sortTsubo( $office_ary, $form_data ) {
             $ary = array();
 
             foreach ( $office_ary as $key => $value ) {
-                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item']) ) {
+                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item'], true) ) {
                     array_push($ary, $value);
                 }
             }
@@ -174,7 +174,7 @@ function sortHito( $office_ary, $form_data ) {
             $ary = array();
 
             foreach ( $office_ary as $key => $value ) {
-                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item']) ) {
+                if ( in_array($value['gsx$エリア']['$t'], $form_data['area_item'], true) ) {
                     array_push($ary, $value);
                 }
             }
@@ -234,9 +234,206 @@ function sortTheme( $office_ary, $form_data ) {
 
     $ary = array();
 
+    switch( $form_data['theme_type'] ) {
 
+        // SOHO・創業オフィス
+        case "01":
+            foreach ( $office_ary as $key => $value ) {
+                $icon_array = array();
+                $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+                if ( in_array( 'SOHO', $icon_array, true) ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 駅チカ･駅直結
+        case "02":
+            $ary = $office_ary;
+            break;
+
+        // 貸会議室あり
+        case "03":
+            foreach ( $office_ary as $key => $value ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if ( $bldg_id === '01' || $bldg_id === '05' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 貸駐車場あり
+        case "04":
+            foreach ( $office_ary as $key => $value ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if ( $bldg_id === '02' || $bldg_id === '03' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 1F店舗空物件
+        case "05":
+            foreach ( $office_ary as $key => $value ) {
+                if ( $value['gsx$階数']['$t'] === '1' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 外装・内装リニューアル
+        case "06":
+            foreach ( $office_ary as $key => $value ) {
+                $icon_array = array();
+                $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+                if ( in_array( '外装・内装リニューアル', $icon_array, true) ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // １Fコンビニ
+        case "07":
+            foreach ( $office_ary as $key => $value ) {
+                $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
+                if ( $bldg_id === '01' || $bldg_id === '05' ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+
+        // 管理人常駐
+        case "08":
+            foreach ( $office_ary as $key => $value ) {
+                $icon_array = array();
+                $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+                if ( in_array( 'G', $icon_array, true) ) {
+                    array_push($ary, $value);
+                }
+            }
+            break;
+        default:
+            $ary = $office_ary;
+            break;
+    }
 
     return $ary;
+}
+
+
+// --------------------------------------------------------
+// ・検索情報を取得する
+// $sort_data　Array
+// $form_type String
+// $form_data　$_POST
+//
+// return Array
+//
+function getSearchOption( $sort_data, $form_type, $form_data ) {
+
+    // 物件数を格納
+    $res_count = count( $sort_data );
+    $option_name = '';
+    $custom_html = '';
+
+    // 検索フォームで分岐
+    switch( $form_type ) {
+
+        // 坪数で検索
+        case "tsubo":
+
+            $min_tsubo = 0;
+            $max_tsubo = 999;
+
+            if( !empty($form_data['tsubo_min']) && $form_data['tsubo_min'] > $min_tsubo ) {
+            $min_tsubo = $form_data['tsubo_min'];
+            }
+            if( !empty($form_data['tsubo_max']) && $form_data['tsubo_max'] < $max_tsubo ) {
+                $max_tsubo = $form_data['tsubo_max'];
+            }
+
+            $option_name = 'エリア';
+            $option_content = '';
+            if( $form_data['area_item'] ) {
+            foreach ( $form_data['area_item'] as $key => $value ) {
+                if( $key < 1 ) {
+                $option_content .= AREA_NAME[ $value ];
+                }else {
+                $option_content .= ',' . AREA_NAME[ $value ];
+                }
+            }
+            }else {
+            $option_content = '全エリア';
+            }
+
+            $custom_html = <<<EOM
+            <dl>
+                <dt>広さ</dt>
+                <dd>{$min_tsubo}坪～{$max_tsubo}坪</dd>
+            </dl>
+            EOM;
+            break;
+
+        // 従業員数で検索
+        case "hito":
+
+            $min_hito = 0;
+            $max_hito = 999;
+
+            if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_hito ) {
+            $min_hito = $form_data['hito_min'];
+            }
+            if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_hito ) {
+                $max_hito = $form_data['hito_max'];
+            }
+
+            $option_name = 'エリア';
+            $option_content = '';
+            if( $form_data['area_item'] ) {
+            foreach ( $form_data['area_item'] as $key => $value ) {
+                if( $key < 1 ) {
+                $option_content .= AREA_NAME[ $value ];
+                }else {
+                $option_content .= ',' . AREA_NAME[ $value ];
+                }
+            }
+            }else {
+            $option_content = '全エリア';
+            }
+
+            $custom_html = <<<EOM
+            <dl>
+                <dt>従業員数</dt>
+                <dd>{$min_hito}人～{$max_hito}人</dd>
+            </dl>
+            EOM;
+            break;
+
+        // こだわり検索
+        case "kodawari":
+            $option_name = '検索条件';
+            $option_content = 'hoge';
+            break;
+
+        // テーマで検索
+        case "theme":
+            $option_name = 'テーマ';
+            $option_content = SEARCH_THEME_NAME[$form_data['theme_type']];
+            break;
+
+        default:
+            break;
+    }
+
+    $search_option = array(
+        "count" => $res_count,
+        "option_name" => $option_name,
+        "option_content" => $option_content,
+        "custom_html" => $custom_html
+    );
+
+    return $search_option;
+
 }
 
 

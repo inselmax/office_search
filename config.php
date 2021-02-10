@@ -24,7 +24,7 @@ define('MANSION_ROOM_JSON', 'https://spreadsheets.google.com/feeds/list/1_nngxRQ
 ------------------------------------------------------------------------ */
 
 // 各ビル対応エリア（名前）
-define('BLDG_AERA_NAME',[
+define('BLDG_AREA_NAME',[
         '01' => '南森町',
         '02' => '南森町',
         '03' => '南森町',
@@ -38,7 +38,7 @@ define('BLDG_AERA_NAME',[
       ]);
 
 // 各ビル対応エリア（名前）
-define('AERA_NAME',[
+define('AREA_NAME',[
         '01' => '南森町',
         '02' => '西梅田',
         '03' => '東梅田',
@@ -73,7 +73,7 @@ define('BLDG_SLUG',[
         '08' => 'umeda_bldg',
         '09' => 'wakasugi_bldg_nakatsu',
         '10' => 'new_bldg'
-    ]);
+      ]);
 
 // ビル（最上階）
 define('BLDG_TOP_FLOOR',[
@@ -87,8 +87,7 @@ define('BLDG_TOP_FLOOR',[
         '08' => '8',
         '09' => '10',
         '10' => '10'
-    ]);
-
+      ]);
 
 // ビル（オプション）
 define('BLDG_OPTION',[
@@ -114,8 +113,19 @@ define('BLDG_OPTION',[
         'T' => '駐車場近隣あり（自社）',
         'U' => 'ビルマルチ空調',
         'V' => '17階休憩室'
-    ]);
+      ]);
 
+// テーマ検索リスト（名前）
+define('SEARCH_THEME_NAME',[
+        '01' => 'SOHO・創業オフィス',
+        '02' => '駅チカ･駅直結',
+        '03' => '貸会議室あり',
+        '04' => '貸駐車場あり',
+        '05' => '１F店舗空物件',
+        '06' => '外装・内装リニューアル',
+        '07' => '１Fコンビニ',
+        '08' => '管理人常駐'
+      ]);
 
 
 /* ------------------------------------------------------------------------
@@ -126,7 +136,7 @@ define('BLDG_OPTION',[
 
 
 // エリア（名前）
-define('MANSION_AERA_NAME',[
+define('MANSION_AREA_NAME',[
     '01' => '旭区',
     '02' => '旭区',
     '03' => '都島区'
