@@ -76,31 +76,30 @@ function htmlSearchForm_02() {
 								?>
 							</div>
 						</div>
-						<label><input type="checkbox" name="office_option[]" value="J"> 駅スグ</label>
-						<label><input type="checkbox" name="office_option[]" value="I"> 駅直結</label>
-						<label><input type="checkbox" name="office_option[]" value="D"> 貸会議室</label>
-						<label><input type="checkbox" name="office_option[]" value="E"> 貸駐車場</label>
-						<label><input type="checkbox" name="office_option_1fk" value="1fk"> 1Fコンビニ</label>
-						<label><input type="checkbox" name="office_option[]" value="P"> EVリニューアル</label>
-						<label><input type="checkbox" name="office_option[]" value="O"> 空調リニューアル</label>
-						<label><input type="checkbox" name="office_option[]" value="N"> 給湯室リニューアル</label>
-						<label><input type="checkbox" name="office_option[]" value="M"> トイレリニューアル</label>
-						<label><input type="checkbox" name="office_option[]" value="B"> 個別空調</label>
-						<label><input type="checkbox" name="office_option[]" value="C"> 光回線</label>
-						<label><input type="checkbox" name="office_option[]" value="L"> OAフロア対応</label>
-						<label><input type="checkbox" name="office_option[]" value="F"> ビル前ポスト</label>
-						<label><input type="checkbox" name="office_option[]" value="G"> 管理人常駐</label>
-						<label><input type="checkbox" name="office_option[]" value="Q"> 防犯カメラ</label>
-						<label><input type="checkbox" name="office_option[]" value="A"> 24時間利用</label>
-						<label><input type="checkbox" name="office_option_10fmin" value="10fmin"> 高階層(10階以上)</label>
-						<label><input type="checkbox" name="office_option_3fmin" value="3fmin"> 低階層(3階以上)</label>
-						<label><input type="checkbox" name="office_option_fmax" value="fmax"> 最上階</label>
-						<label><input type="checkbox" name="office_option_1fshop" value="1fshop"> 1F店舗空物件</label>
 					<div>
 					<div class="SearchBy SearchBy-kodawari">
 						<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
 							<div class="SearchBy_cont">
-								<label><input type="checkbox" name="form_02_option[]" value="1"> 南森町</label>
+                <label><input type="checkbox" name="office_option[]" value="J"> 駅スグ</label>
+                <label><input type="checkbox" name="office_option[]" value="I"> 駅直結</label>
+                <label><input type="checkbox" name="office_option[]" value="D"> 貸会議室</label>
+                <label><input type="checkbox" name="office_option[]" value="E"> 貸駐車場</label>
+                <label><input type="checkbox" name="office_option_1fk" value="1fk"> 1Fコンビニ</label>
+                <label><input type="checkbox" name="office_option[]" value="P"> EVリニューアル</label>
+                <label><input type="checkbox" name="office_option[]" value="O"> 空調リニューアル</label>
+                <label><input type="checkbox" name="office_option[]" value="N"> 給湯室リニューアル</label>
+                <label><input type="checkbox" name="office_option[]" value="M"> トイレリニューアル</label>
+                <label><input type="checkbox" name="office_option[]" value="B"> 個別空調</label>
+                <label><input type="checkbox" name="office_option[]" value="C"> 光回線</label>
+                <label><input type="checkbox" name="office_option[]" value="L"> OAフロア対応</label>
+                <label><input type="checkbox" name="office_option[]" value="F"> ビル前ポスト</label>
+                <label><input type="checkbox" name="office_option[]" value="G"> 管理人常駐</label>
+                <label><input type="checkbox" name="office_option[]" value="Q"> 防犯カメラ</label>
+                <label><input type="checkbox" name="office_option[]" value="A"> 24時間利用</label>
+                <label><input type="checkbox" name="office_option_10fmin" value="10fmin"> 高階層(10階以上)</label>
+                <label><input type="checkbox" name="office_option_3fmin" value="3fmin"> 低階層(3階以上)</label>
+                <label><input type="checkbox" name="office_option_fmax" value="fmax"> 最上階</label>
+                <label><input type="checkbox" name="office_option_1fshop" value="1fshop"> 1F店舗空物件</label>
 							</div>
 						</div>
 					</div>
