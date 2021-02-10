@@ -231,8 +231,10 @@ function sortKodawari( $office_ary, $form_data ) {
         }
     }
 
+    // 条件で絞り込み
     foreach ( $ary as $key => $value ) {
 
+        // ビルIDを取得
         $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
 
         // 1Fコンビニ
