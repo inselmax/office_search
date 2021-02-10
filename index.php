@@ -86,6 +86,9 @@ require_once($Root . "/office_search/html_lib.php");
 		border: solid 1px #2778be;
 		padding: 10px;
 	}
+	.SearchSect-kodawari .SearchSect_wrap {
+		border: solid 1px #d9752b;
+	}
 	.SearchSect_wrap .search_subttl {
 		background: #3299cf;
 		color: #FFF;
@@ -93,10 +96,16 @@ require_once($Root . "/office_search/html_lib.php");
 		font-size: 24px;
 		font-weight: bold;
 	}
+	.SearchSect_wrap .search_subttl-02 {
+		background: #d9752b;
+	}
 	.SearchSect_wrap .search_subttl .SearchSubttl_ico {
 		position: relative;
 		margin-left: 20px;
 		padding-left: 45px;
+	}
+	.SearchSect_wrap .search_subttl-02 .SearchSubttl_ico {
+		padding-left: 35px;
 	}
 	.SearchSect_wrap .search_subttl .SearchSubttl_ico::before {
 		content: "";
@@ -117,17 +126,18 @@ require_once($Root . "/office_search/html_lib.php");
 	.SearchSect-kodawari .search_subttl .SearchSubttl_ico::before {
 		background: url(/image_uniq/office_search/subttl02_ico.png) no-repeat;
 		background-size: contain;
-		padding-left: 35px;
+		height: 28px;
+		width: 28px;
 	}
 	.SearchSect_wrap .search_cont {
 		background: #eff6f8;
 		padding: 15px;
 	}
-	.SearchSect-kodawari .SearchSect_wrap .SearchBy_ttl {
-		background: none;
+	.SearchSect-kodawari .SearchSect_wrap .search_cont { 
+		background: #f8f2ef;
 	}
 	.SearchSect_wrap .search_cont .SearchBy {
-		padding-bottom: 25px;
+		padding: 5px 0;
 	}
 	.SearchSect_wrap .search_cont .SearchBy_ttl {
 		background: #047298;
@@ -140,6 +150,11 @@ require_once($Root . "/office_search/html_lib.php");
 		vertical-align: middle;
 		width: 250px;
 	}
+	.SearchSect-kodawari .SearchSect_wrap .SearchBy_ttl {
+		background: none;
+		color: #d9752b;
+		padding-left: 32px;
+	}
 	.SearchBy .SearchBy_ttl span::before {
 		content: "";
 		display: inline-block;
@@ -150,13 +165,28 @@ require_once($Root . "/office_search/html_lib.php");
 		-webkit-transform: translateY(-50%);
 		-ms-transform: translateY(-50%);
 	}
+	.SearchSect-kodawari .SearchBy_ttl span::before {
+		left: 0;
+	}
 	.SearchBy-area .SearchBy_ttl span:before {
 		background: url(/image_uniq/office_search/area_ico.png) no-repeat;
 		background-size: contain;
 		height: 24px;
 		width: 24px;
 	}
-	.SearchBy-extent .SearchBy_ttl span:before {
+	.SearchSect-kodawari .SearchBy-area span:before {
+		background: url(/image_uniq/office_search/area_ico_orange.png) no-repeat;
+		background-size: contain;
+		height: 24px;
+		width: 24px;
+	}
+	.SearchSect-kodawari .SearchBy-kodawari span:before {
+		background: url(/image_uniq/office_search/kodawari_ico.png) no-repeat;
+		background-size: contain;
+		height: 23px;
+		width: 23px;
+	}
+	.SearchBy-extent .SearchBy_ttl .SearchBy_ttl span:before {
 		background: url(/image_uniq/office_search/extent_ico.png) no-repeat;
 		background-size: contain;
 		height: 22px;
@@ -173,6 +203,11 @@ require_once($Root . "/office_search/html_lib.php");
 		display: table-cell;
 		padding: 25px;
 		width: 1130px;
+	}
+	.SearchSect-kodawari .search_cont .SearchBy_cont {
+		display: block;
+		margin-top: 15px;
+		width: auto;
 	}
 	.search_cont .SearchBy_cont .search_size_lightbox {
 		padding-left: 0;
