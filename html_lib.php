@@ -121,7 +121,7 @@ function htmlSearchForm_02() {
 //
 function htmlSearchForm_03() {
 	?>
-  <section class="SearchSect SearchSect-kodawari">
+  <section class="SearchSect SearchSect-theme">
 	  <div class="l-inner search_inner">
 		  <p>テーマで検索</p>
 		  <div>

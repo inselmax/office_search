@@ -99,8 +99,6 @@ require_once($Root . "/office_search/html_lib.php");
 		padding-left: 45px;
 	}
 	.SearchSect_wrap .search_subttl .SearchSubttl_ico::before {
-		background: url(/image_uniq/office_search/subttl01_ico.png) no-repeat;
-		background-size: contain;
 		content: "";
 		display: inline-block;
 		height: 25px;
@@ -112,9 +110,21 @@ require_once($Root . "/office_search/html_lib.php");
 		-ms-transform: translateY(-50%);
 		width: 31px;
 	}
+	.SearchSect-easy .search_subttl .SearchSubttl_ico::before {
+		background: url(/image_uniq/office_search/subttl01_ico.png) no-repeat;
+		background-size: contain;
+	}
+	.SearchSect-kodawari .search_subttl .SearchSubttl_ico::before {
+		background: url(/image_uniq/office_search/subttl02_ico.png) no-repeat;
+		background-size: contain;
+		padding-left: 35px;
+	}
 	.SearchSect_wrap .search_cont {
 		background: #eff6f8;
 		padding: 15px;
+	}
+	.SearchSect-kodawari .SearchSect_wrap .SearchBy_ttl {
+		background: none;
 	}
 	.SearchSect_wrap .search_cont .SearchBy {
 		padding-bottom: 25px;
