@@ -67,8 +67,8 @@ function htmlSearchForm_02() {
 					<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
-						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+						<div class="SearchBy_cont l-grid l-gutter-s">
+							<label class="l-grid_item l-grid_item-"><input type="checkbox" name="area_all" value="all"> 全エリア</label>
 								<?php
 									foreach ( AREA_NAME as $key => $value ) {
 										echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
@@ -79,7 +79,7 @@ function htmlSearchForm_02() {
 					<div>
 					<div class="SearchBy SearchBy-kodawari">
 						<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
-							<div class="SearchBy_cont">
+							<div class="SearchBy_cont l-grid l-gutter-s">
 								<label><input type="checkbox" name="office_option[]" value="J"> 駅スグ</label>
 								<label><input type="checkbox" name="office_option[]" value="I"> 駅直結</label>
 								<label><input type="checkbox" name="office_option[]" value="D"> 貸会議室</label>
@@ -104,7 +104,7 @@ function htmlSearchForm_02() {
 						</div>
 					</div>
 					<button id="resetBtn">条件をクリア</button>
-					<button type="submit" name="form_submit" value="kodawari">検索する</button>
+					<button type="submit" name="form_submit" value="kodawari" class="SearchBtn SearchBtn-blue" ><img src="/image_uniq/office_search/search_btn.png" alt=""></button>
 				</form>
 			</div>
 		</div>

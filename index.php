@@ -139,6 +139,9 @@ require_once($Root . "/office_search/html_lib.php");
 	.SearchSect_wrap .search_cont .SearchBy {
 		padding: 5px 0;
 	}
+	.SearchSect_wrap .search_cont .SearchBy-kodawari {
+		padding: 25px 0;
+	}
 	.SearchSect_wrap .search_cont .SearchBy_ttl {
 		background: #047298;
 		color: #FFF;
@@ -215,13 +218,20 @@ require_once($Root . "/office_search/html_lib.php");
 	.search_cont .SearchBy_cont label {
 		padding-right: 25px;
 	}
+	.SearchSect-kodawari .SearchBy_cont label {
+		border: solid 1px #dedede;
+		text-align: center;
+	}
 	.search_cont .SearchBy_cont input {
 		border: solid 1px #dedede;
 		margin-right: 8px;
 		padding: 8px 0;
 		max-width: 100px
 	}
-	.search_cont .SearchBy_cont .SearchBtn {
+	.SearchSect-kodawari .SearchBy_cont input {
+		display: none;
+	}
+	.SearchSect .SearchSect_wrap .SearchBtn {
 		background: none;
 		border: none;
 		cursor: pointer;
