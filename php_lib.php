@@ -234,7 +234,7 @@ function sortKodawari( $office_ary, $form_data ) {
     // 条件で絞り込み
     foreach ( $ary as $key => $value ) {
 
-        // ビルオプションで絞り込み
+        // ビルオプションで絞り込み（A～V）
         $icon_array = array();
         $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
         if( $_POST['office_option'] ) {

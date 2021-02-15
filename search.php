@@ -137,7 +137,8 @@ if (!empty($_GET["page"]) && $_GET["page"] != "") {
       <div class="breadcrumbs">
         <ul class="breadcrumbs_lists l-inner">
           <li><a href="/">HOME</a></li>
-          <li>オフィス検索</li>
+          <li><a href="/office_search/">オフィス検索</a></li>
+          <li>検索結果</li>
         </ul>
       </div>
       <!--       オフィス検索　start -->
@@ -157,19 +158,24 @@ if (!empty($_GET["page"]) && $_GET["page"] != "") {
 
 
                 // --------------------------------------------
-                // ▼絞り込み処理 START
+                // ★絞り込み処理 START
 
                 $data_new = array();
                 $data_new = getSearchOffice( $data_bukken, $form_data );
 
-                // ▲絞り込み処理 END
+                // ～ 絞り込み処理 END
                 // --------------------------------------------
 
 
-                // 検索情報を取得・出力
+                // --------------------------------------------
+                // ★検索情報を取得・出力 START
+
                 $search_option = array();
                 $search_option = getSearchOption( $data_new, $form_data['form_submit'], $form_data );
                 htmlSearchOption( $search_option );
+
+                // ～ 検索情報を取得・出力 END
+                // --------------------------------------------
 
 
                 // ページャー情報を取得
