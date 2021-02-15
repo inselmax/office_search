@@ -67,11 +67,11 @@ function htmlSearchForm_02() {
 					<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
-						<div class="SearchBy_cont l-grid l-gutter-s">
-							<label class="l-grid_item l-grid_item-"><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+						<div class="SearchBy_cont">
+							<label><input type="checkbox" name="area_all" value="all"><span class="label_check"> 全エリア</span></label>
 								<?php
 									foreach ( AREA_NAME as $key => $value ) {
-										echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+										echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> <span class="label_check">' . $value . '</span></label>';
 								}
 								?>
 							</div>

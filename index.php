@@ -208,7 +208,9 @@ require_once($Root . "/office_search/html_lib.php");
 		width: 1130px;
 	}
 	.SearchSect-kodawari .search_cont .SearchBy_cont {
-		display: block;
+		display: grid;
+		gap: 15px;
+		grid-template-columns: 13% 13% 13% 13% 13% 13% 13%;
 		margin-top: 15px;
 		width: auto;
 	}
@@ -218,18 +220,34 @@ require_once($Root . "/office_search/html_lib.php");
 	.search_cont .SearchBy_cont label {
 		padding-right: 25px;
 	}
-	.SearchSect-kodawari .SearchBy_cont label {
-		border: solid 1px #dedede;
+	.SearchSect-kodawari .SearchBy_cont > label {
+		padding-right: 0;
 		text-align: center;
 	}
 	.search_cont .SearchBy_cont input {
-		border: solid 1px #dedede;
 		margin-right: 8px;
 		padding: 8px 0;
 		max-width: 100px
 	}
-	.SearchSect-kodawari .SearchBy_cont input {
+	.SearchSect-kodawari .SearchBy_cont input[type="checkbox"] {
 		display: none;
+         /*デフォルトのチェックボックスを非表示にする*/
+	}
+	.SearchSect-kodawari .SearchBy_cont input[type="checkbox"] + .label_check {
+		border: solid 1px #dedede;
+		cursor: pointer;
+		display: inline-block;
+		padding: 8px 0;
+		position: relative;
+		width: 100%;
+	}
+	.SearchSect-kodawari .SearchBy_cont input[type="checkbox"] + label::before {
+
+	}
+
+	.SearchBy_cont input:checked + .label_check {
+		background: #f19149;
+		color: #FFF;
 	}
 	.SearchSect .SearchSect_wrap .SearchBtn {
 		background: none;
