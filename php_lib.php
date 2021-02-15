@@ -234,6 +234,19 @@ function sortKodawari( $office_ary, $form_data ) {
     // 条件で絞り込み
     foreach ( $ary as $key => $value ) {
 
+        // ビルオプションで絞り込み
+        $icon_array = array();
+        $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
+        if( $_POST['office_option'] ) {
+            foreach ( $_POST['office_option'] as $item => $op ) {
+                if ( in_array($op, $icon_array, true) ) {
+                }else {
+                    unset($ary[$key]);
+                    break;
+                }
+            }
+        }
+
         // ビルIDを取得
         $bldg_id = getBldgId( $value['gsx$物件id']['$t'] );
 
