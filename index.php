@@ -209,11 +209,20 @@ require_once($Root . "/office_search/html_lib.php");
 	}
 	.SearchSect-kodawari .search_cont .SearchBy_cont {
 		display: grid;
-		gap: 15px;
-		grid-template-columns: 13% 13% 13% 13% 13% 13% 13%;
+		gap: 1.25%;
+		grid-template-columns: 13.1% 13.1% 13.1% 13.1% 13.1% 13.1% 13.1%;
 		margin-top: 15px;
 		width: auto;
 	}
+	.SearchSect-kodawari .search_cont .SearchBy_cont-kodawari {
+		display: grid;
+		gap: 1.25%;
+		grid-template-columns: 18.8% 18.8% 18.8% 18.8% 18.8%;
+	}
+	.SearchBy_cont-kodawari label {
+		margin-bottom: 8px;
+	}
+
 	.search_cont .SearchBy_cont .search_size_lightbox {
 		padding-left: 0;
 	}
