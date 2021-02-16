@@ -137,7 +137,6 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
   </script>
 
   <style>
-
     /* index.phpと共通の部分 */
     .main-officeSearch .search_ttl {
       font-size: 32px;
@@ -147,6 +146,7 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       position: relative;
       padding-left: 45px;
     }
+
     .main-officeSearch .search_ttl span::before {
       background: url(/image_uniq/office_search/search_ttl_ico.png) no-repeat;
       background-size: contain;
@@ -161,6 +161,7 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       -ms-transform: translateY(-50%);
       width: 36px;
     }
+
     /* index.phpと共通の部分 END */
 
     .searchResult {
@@ -168,9 +169,11 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       padding: 30px;
       margin-bottom: 20px;
     }
+
     .searchResult .searchResult_inner {
       position: relative;
     }
+
     .searchResult .searchResult_body {
       background: #fff;
       box-sizing: border-box;
@@ -208,8 +211,36 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       transform: translate(0, -50%);
       width: 24%;
     }
+
     .searchResult .searchResult_return img {
       vertical-align: middle;
+    }
+
+    /* SP */
+    @media screen and (max-width:767px) {
+      .searchResult {
+        padding: 20px;
+      }
+      .searchResult .searchResult_body {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      .searchResult .searchResult_return {
+        position: static;
+        transform: none;
+        width: 100%;
+      }
+      .searchResult .searchResult_body dt, .searchResult .searchResult_body dd {
+        font-size: 14px;
+        line-height: 25px;
+      }
+      .searchResult .searchResult_body dt {
+        text-align: center;
+        width: 65px;
+      }
+      .searchResult .searchResult_body dd {
+        padding: 0 20px 0 5px;
+      }
     }
   </style>
 </head>
