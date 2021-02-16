@@ -49,8 +49,14 @@ require_once($Root . "/office_search/html_lib.php");
 
 	<script>
 		$(function() {
-			$('.theme_label').on('click', function() {
-				$('#form_theme').submit();
+			// // テーマ検索（submit実行）
+			// $('.theme_label').on('click', function() {
+			// 	$('#form_theme').submit();
+			// });
+
+			// こだわり検索（リセット）
+			$('#resetBtn').on('click', function(){
+				$('.SearchBy_cont-kodawari .office_option_input').prop( 'checked', false );
 			});
 		});
 	</script>
@@ -362,7 +368,7 @@ require_once($Root . "/office_search/html_lib.php");
 				padding: 15px;
 				width: 100%;
 			}
-			
+
 			/* 見出し */
 			.SearchSect_wrap .search_subttl {
 				font-size: 16px;

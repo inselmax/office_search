@@ -96,45 +96,45 @@ function htmlSearchForm_02()
 							<div class="SearchBy SearchBy-kodawari">
 								<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
 								<div class="SearchBy_cont SearchBy_cont-kodawari">
-									<label><input type="checkbox" name="office_option[]" value="J"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="J"> <span
 											class="label_check">駅スグ</span></label>
-									<label><input type="checkbox" name="office_option[]" value="I"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="I"> <span
 											class="label_check">駅直結</span></label>
-									<label><input type="checkbox" name="office_option[]" value="D"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="D"> <span
 											class="label_check">貸会議室</span></label>
-									<label><input type="checkbox" name="office_option[]" value="E"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="E"> <span
 											class="label_check">貸駐車場</span></label>
-									<label><input type="checkbox" name="office_option_1fk" value="1fk"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option_1fk" value="1fk"> <span
 											class="label_check">1Fコンビニ</span></label>
-									<label><input type="checkbox" name="office_option[]" value="P"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="P"> <span
 											class="label_check">EVリニューアル</span></label>
-									<label><input type="checkbox" name="office_option[]" value="O"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="O"> <span
 											class="label_check">空調リニューアル</span></label>
-									<label><input type="checkbox" name="office_option[]" value="N"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="N"> <span
 											class="label_check">給湯室リニューアル</span></label>
-									<label><input type="checkbox" name="office_option[]" value="M"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="M"> <span
 											class="label_check">トイレリニューアル</span></label>
-									<label><input type="checkbox" name="office_option[]" value="B"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="B"> <span
 											class="label_check">個別空調</span></label>
-									<label><input type="checkbox" name="office_option[]" value="C"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="C"> <span
 											class="label_check">光回線</span></label>
-									<label><input type="checkbox" name="office_option[]" value="L"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="L"> <span
 											class="label_check">OAフロア対応</span></label>
-									<label><input type="checkbox" name="office_option[]" value="F"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="F"> <span
 											class="label_check">ビル前ポスト</span></label>
-									<label><input type="checkbox" name="office_option[]" value="G"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="G"> <span
 											class="label_check">管理人常駐</span></label>
-									<label><input type="checkbox" name="office_option[]" value="Q"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="Q"> <span
 											class="label_check">防犯カメラ</span></label>
-									<label><input type="checkbox" name="office_option[]" value="A"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option[]" value="A"> <span
 											class="label_check">24時間利用</span></label>
-									<label><input type="checkbox" name="office_option_10fmin" value="10fmin"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option_10fmin" value="10fmin"> <span
 											class="label_check">高階層(10階以上)</span></label>
-									<label><input type="checkbox" name="office_option_3fmin" value="3fmin"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option_3fmin" value="3fmin"> <span
 											class="label_check">低階層(3階以上)</span></label>
-									<label><input type="checkbox" name="office_option_fmax" value="fmax"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option_fmax" value="fmax"> <span
 											class="label_check">最上階</span></label>
-									<label><input type="checkbox" name="office_option_1fshop" value="1fshop"> <span
+									<label><input class="office_option_input" type="checkbox" name="office_option_1fshop" value="1fshop"> <span
 											class="label_check">1F店舗空物件</span></label>
 								</div>
 							</div>
