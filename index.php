@@ -267,8 +267,11 @@ require_once($Root . "/office_search/html_lib.php");
 			padding-left: 0;
 		}
 
-		.search_cont .SearchBy_cont label {
+		.SearchSect-easy .SearchBy_cont label {
 			display: inline-block;
+		}
+
+		.search_cont .SearchBy_cont label {
 			padding-right: 25px;
 		}
 
@@ -364,7 +367,6 @@ require_once($Root . "/office_search/html_lib.php");
 
 			.SearchSect_wrap .search_cont .SearchBy_cont {
 				box-sizing: border-box;
-				display: block;
 				padding: 15px;
 				width: 100%;
 			}
@@ -379,6 +381,10 @@ require_once($Root . "/office_search/html_lib.php");
 			}
 
 			/* 簡単検索 */
+			.SearchSect-easy .SearchSect_wrap .search_cont .SearchBy_cont {
+				display: block;
+			}
+
 			.SearchSect-easy .SearchSect_wrap .search_cont .SearchBy_ttl {
 				box-sizing: border-box;
 				display: block;
@@ -416,6 +422,11 @@ require_once($Root . "/office_search/html_lib.php");
 				margin-left: 0;
 			}
 
+			/* こだわり検索 */
+			.SearchSect-kodawari .search_cont .SearchBy_cont {
+				gap: 2%;
+				grid-template-columns: 49% 49%;
+			}
 		}
 	</style>
 	<!--[if lt IE 9]>
