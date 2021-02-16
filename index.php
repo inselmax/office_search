@@ -387,7 +387,7 @@ require_once($Root . "/office_search/html_lib.php");
 				width: 100%;
 			}
 
-			.SearchBy .SearchBy_ttl span::before {
+			.SearchSect-easy .SearchBy .SearchBy_ttl span::before {
 				left: 4.5%;
 			}
 
