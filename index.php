@@ -55,8 +55,20 @@ require_once($Root . "/office_search/html_lib.php");
 			// });
 
 			// こだわり検索（リセット）
-			$('#resetBtn').on('click', function(){
-				$('.SearchBy_cont-kodawari .office_option_input').prop( 'checked', false );
+			$('#resetBtn').on('click', function() {
+				$('.SearchBy_cont-kodawari .office_option_input').prop('checked', false);
+			});
+
+			//アコーディオン
+			$('.search_subttl.search_subttl-acco').on('click', function() {
+				var $_target = $(this).next();
+				if (!$(this).hasClass('active')) {
+					$(this).addClass('active');
+					$_target.slideDown();
+				} else {
+					$(this).removeClass('active');
+					$_target.slideUp();
+				}
 			});
 		});
 	</script>
@@ -68,7 +80,7 @@ require_once($Root . "/office_search/html_lib.php");
 
 		.main-officeSearch .SearchSect {
 			font-size: 16px;
-			padding: 25px 0;
+			padding: 10px 0;
 		}
 
 		.main-officeSearch .search_ttl {
@@ -110,6 +122,30 @@ require_once($Root . "/office_search/html_lib.php");
 			padding: 8px 0;
 			font-size: 24px;
 			font-weight: bold;
+		}
+
+		/* アコーディオン */
+		.SearchSect_wrap .search_subttl.search_subttl-acco {
+			cursor: pointer;
+			position: relative;
+		}
+
+		.SearchSect_wrap .search_subttl.search_subttl-acco:after {
+			content: "\f055";
+			font-family: 'FontAwesome';
+			font-size: 36px;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translate(0, -50%);
+		}
+
+		.SearchSect_wrap .search_subttl.search_subttl-acco.active:after {
+			content: "\f056";
+		}
+
+		.SearchSect_wrap .search_subttl.search_subttl-acco+.search_cont {
+			display: none;
 		}
 
 		.SearchSect_wrap .search_subttl-02 {
@@ -384,6 +420,12 @@ require_once($Root . "/office_search/html_lib.php");
 
 			.SearchSect_wrap .search_subttl .small-txt {
 				font-size: 11px;
+			}
+
+			/* アコーディオン */
+			.SearchSect_wrap .search_subttl.search_subttl-acco:after {
+				font-size: 24px;
+				right: 10px;
 			}
 
 			/* 簡単検索 */
