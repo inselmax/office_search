@@ -10,12 +10,21 @@ require_once($Root . "/office_search/html_lib.php");
 // フォームデータをセット
 $form_data = array();
 if( $_POST ) {
-  $_SESSION['FORM_DATA'] = $_POST;
   $form_data = $_POST;
-}elseif( !empty($_GET["theme"]) && $_GET["theme"] != "" ) {
+  $_SESSION['FORM_DATA'] = $form_data;
+
+}elseif( !empty($_GET["theme"]) && $_GET["theme"] != "" && $_GET["stype"] === "theme" ) {
   $form_data["theme"] = $_GET["theme"];
+
+  if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
+    $form_data["stype"] = $_GET["stype"];
+  }
+
+  $_SESSION['FORM_DATA'] = $form_data;
+
 }elseif( $_SESSION['FORM_DATA'] ) {
   $form_data = $_SESSION['FORM_DATA'];
+
 }
 
 
@@ -220,7 +229,7 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
 
             <?php
               // ページナビを出力
-              htmlPageNavi( $page_current, $PageNavi['total_page'] );
+              htmlPageNavi( $page_current, $PageNavi['total_page'], $form_data );
             }
              ?>
 
