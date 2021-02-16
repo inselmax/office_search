@@ -246,23 +246,23 @@ function htmlPageNavi( $page_current, $total_page ) {
   echo '<div class="page-navi"><span class="page-show pages">' . $page_current . '&nbsp;/&nbsp;' . $total_page . '</span>';
 
     if ($page_current != 1) {
-      echo '<a class="page-back pages page_button" href="/office_search/search.php?&page=1">«</a>';
+      echo '<a class="page-back pages page_button" href="/office_search/search.php?page=1">«</a>';
     }
     if ($page_current > 2) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?&page=' . ($page_current - 2) . '">' . ($page_current - 2) . '</a>';
+      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 2) . '">' . ($page_current - 2) . '</a>';
     }
     if ($page_current > 1) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?&page=' . ($page_current - 1) . '">' . ($page_current - 1) . '</a>';
+      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 1) . '">' . ($page_current - 1) . '</a>';
     }
     echo '<span class="page-curr pages page_button">' . $page_current . '</span>';
     if ($page_current < $total_page) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?&page=' . ($page_current + 1) . '">' . ($page_current + 1) . '</a>';
+      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 1) . '">' . ($page_current + 1) . '</a>';
     }
     if ($page_current < $total_page - 1) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?&page=' . ($page_current + 2) . '">' . ($page_current + 2) . '</a>';
+      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 2) . '">' . ($page_current + 2) . '</a>';
     }
     if ($page_current < $total_page) {
-      echo '<a class="page-font pages page_button" href="/office_search/search.php?&page=' . $total_page . '">»</a>';
+      echo '<a class="page-font pages page_button" href="/office_search/search.php?page=' . $total_page . '">»</a>';
     }
 
   echo '</div>';
