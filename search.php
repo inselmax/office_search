@@ -161,7 +161,12 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       -ms-transform: translateY(-50%);
       width: 36px;
     }
-
+		@media screen and (max-width:767px) {
+			.main-officeSearch .search_ttl {
+				font-size: 21px;
+				margin-bottom: 10px;
+			}
+		}
     /* index.phpと共通の部分 END */
 
     .searchResult {

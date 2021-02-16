@@ -92,6 +92,7 @@ if ($_SESSION['FORM_DATA']) {
 
 		.main-officeSearch .search_ttl {
 			font-size: 32px;
+			margin-bottom: 20px;
 		}
 
 		.main-officeSearch .search_ttl span {
@@ -112,6 +113,12 @@ if ($_SESSION['FORM_DATA']) {
 			-webkit-transform: translateY(-50%);
 			-ms-transform: translateY(-50%);
 			width: 36px;
+		}
+		@media screen and (max-width:767px) {
+			.main-officeSearch .search_ttl {
+				font-size: 21px;
+				margin-bottom: 10px;
+			}
 		}
 
 		.SearchSect_wrap {
