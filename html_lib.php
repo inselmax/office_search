@@ -1,13 +1,19 @@
 <?php
 
+$Root = $_SERVER['DOCUMENT_ROOT'];
+
+require_once($Root . "/office_search/config.php");
+require_once($Root . "/office_search/php_lib.php");
+
+
+
 // --------------------------------------------------------
 // ・簡単検索
 // $session_data Array
 //
 // HTML
 //
-function htmlSearchForm_01( $session_data )
-{
+function htmlSearchForm_01( $session_data ) {
     ?>
 
 <section class="SearchSect SearchSect-easy">
@@ -20,11 +26,12 @@ function htmlSearchForm_01( $session_data )
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all']) echo 'checked'; ?>> 全エリア</label>
 							<?php
                                     foreach (AREA_NAME as $key => $value) {
                                         echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
-                                    } ?>
+                                    }
+							?>
 						</div>
 					</div>
 					<div class="SearchBy SearchBy-extent">
@@ -35,7 +42,7 @@ function htmlSearchForm_01( $session_data )
 									rel="lightbox">業種ごとの1人当たりの目安坪数</a>
 							</p>
 							<div class="SearchBy_inputWrap">
-								<input type="text" name="tsubo_min"> 坪～　<input type="text" name="tsubo_max"> 坪
+							<input type="text" name="tsubo_min" value="<?php if($session_data['tsubo_min']) echo escStr($session_data['tsubo_min']); ?>"> 坪～　<input type="text" name="tsubo_max" value="<?php if($session_data['tsubo_max']) echo escStr($session_data['tsubo_max']); ?>"> 坪
 							</div>
 							<div class="SearchBy_buttonWrap">
 								<button type="submit" name="form_submit" value="tsubo"
@@ -49,7 +56,7 @@ function htmlSearchForm_01( $session_data )
 						<div class="SearchBy_cont">
 							<p class="small-txt u-pb5">※1人あたり3坪計算</p>
 							<div class="SearchBy_inputWrap">
-								<input type="text" name="hito_min"> 人～　<input type="text" name="hito_max"> 人
+							<input type="text" name="hito_min" value="<?php if($session_data['hito_min']) echo escStr($session_data['hito_min']); ?>"> 人～　<input type="text" name="hito_max" value="<?php if($session_data['hito_max']) echo escStr($session_data['hito_max']); ?>"> 人
 							</div>
 							<div class="SearchBy_buttonWrap">
 								<button type="submit" name="form_submit" value="hito"
