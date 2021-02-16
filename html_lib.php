@@ -2,10 +2,11 @@
 
 // --------------------------------------------------------
 // ・簡単検索
+// $session_data Array
 //
 // HTML
 //
-function htmlSearchForm_01()
+function htmlSearchForm_01( $session_data )
 {
     ?>
 
@@ -68,10 +69,11 @@ function htmlSearchForm_01()
 
 // --------------------------------------------------------
 // ・こだわり検索
+// $session_data Array
 //
 // HTML
 //
-function htmlSearchForm_02()
+function htmlSearchForm_02( $session_data )
 {
     ?>
 <section class="SearchSect SearchSect-kodawari">

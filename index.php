@@ -519,9 +519,9 @@ if ($_SESSION['FORM_DATA']) {
 			</div>
 			<?php
       // 簡単検索
-      htmlSearchForm_01();
+      htmlSearchForm_01( $form_data );
       // こだわり検索
-      htmlSearchForm_02();
+      htmlSearchForm_02( $form_data );
       // テーマで検索
       htmlSearchForm_03();
 
