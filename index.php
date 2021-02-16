@@ -9,8 +9,8 @@ require_once($Root . "/office_search/html_lib.php");
 // セッションを取得
 $form_data = array();
 if ($_SESSION['FORM_DATA']) {
-	$form_data = $_SESSION['FORM_DATA'];
-	var_dump($form_data);
+    $form_data = $_SESSION['FORM_DATA'];
+    var_dump($form_data);
 }
 
 ?>
@@ -114,6 +114,7 @@ if ($_SESSION['FORM_DATA']) {
 			-ms-transform: translateY(-50%);
 			width: 36px;
 		}
+
 		@media screen and (max-width:767px) {
 			.main-officeSearch .search_ttl {
 				font-size: 21px;
@@ -488,9 +489,18 @@ if ($_SESSION['FORM_DATA']) {
 				gap: 0% 2%;
 				grid-template-columns: 49% 49%;
 			}
+
 			.SearchSect-kodawari .search_cont .SearchBy_cont label {
 				margin: 2px 0;
 			}
+
+			.SearchSect .SearchSect_wrap .SearchBtn,
+			.SearchSect .SearchSect_wrap .clear_btn {
+				display: inline-block;
+				margin: 0 0.5%;
+				width: 48%;
+			}
+
 		}
 	</style>
 	<!--[if lt IE 9]>
@@ -528,9 +538,9 @@ if ($_SESSION['FORM_DATA']) {
 			</div>
 			<?php
       // 簡単検索
-      htmlSearchForm_01( $form_data );
+      htmlSearchForm_01($form_data);
       // こだわり検索
-      htmlSearchForm_02( $form_data );
+      htmlSearchForm_02($form_data);
       // テーマで検索
       htmlSearchForm_03();
 
