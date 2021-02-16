@@ -408,6 +408,25 @@ if ($_SESSION['FORM_DATA']) {
 			background: #f8eff4;
 		}
 
+		/* tab */
+		@media screen and (max-width:1000px) {
+
+			/* 簡単検索 */
+			.SearchSect-easy .search_cont .SearchBy_cont .SearchBy_inputWrap {
+				display: block;
+				margin: 0 0 10px;
+			}
+			.SearchSect .SearchSect_wrap .SearchBtn {
+				margin-left: 0;
+			}
+			
+			/* こだわり検索 */
+			.SearchSect-kodawari .search_cont .SearchBy_cont {
+				font-size: 12px;
+			}
+
+		}
+
 		/* SP */
 		@media screen and (max-width:767px) {
 
@@ -470,7 +489,6 @@ if ($_SESSION['FORM_DATA']) {
 
 			.SearchSect-easy .search_cont .SearchBy_cont .SearchBy_inputWrap {
 				display: block;
-				margin: 0 0 10px;
 				width: 280px;
 			}
 
@@ -478,10 +496,6 @@ if ($_SESSION['FORM_DATA']) {
 				display: block;
 				text-align: left;
 				width: 100%;
-			}
-
-			.SearchSect .SearchSect_wrap .SearchBtn {
-				margin-left: 0;
 			}
 
 			/* こだわり検索 */
@@ -494,11 +508,21 @@ if ($_SESSION['FORM_DATA']) {
 				margin: 2px 0;
 			}
 
+			.SearchSect_wrap .search_cont .SearchBy-kodawari {
+				padding: 15px 0;
+			}
+
 			.SearchSect .SearchSect_wrap .SearchBtn,
 			.SearchSect .SearchSect_wrap .clear_btn {
 				display: inline-block;
 				margin: 0 0.5%;
 				width: 48%;
+			}
+
+
+			/* テーマで検索 */
+			.SearchSect.SearchSect-theme .ButtonD-light.ButtonD-icon a {
+				font-size: 12px;
 			}
 
 		}
