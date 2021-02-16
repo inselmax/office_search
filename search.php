@@ -9,38 +9,35 @@ require_once($Root . "/office_search/html_lib.php");
 
 // フォームデータをセット
 $form_data = array();
-if( $_POST ) {
-  $form_data = $_POST;
-  $_SESSION['FORM_DATA'] = $form_data;
+if ($_POST) {
+    $form_data = $_POST;
+    $_SESSION['FORM_DATA'] = $form_data;
+} elseif (!empty($_GET["theme"]) && $_GET["theme"] != "" && $_GET["stype"] === "theme") {
+    $form_data["theme"] = $_GET["theme"];
 
-}elseif( !empty($_GET["theme"]) && $_GET["theme"] != "" && $_GET["stype"] === "theme" ) {
-  $form_data["theme"] = $_GET["theme"];
+    if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
+        $form_data["stype"] = $_GET["stype"];
+    }
 
-  if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
-    $form_data["stype"] = $_GET["stype"];
-  }
-
-  $_SESSION['FORM_DATA'] = $form_data;
-
-}elseif( $_SESSION['FORM_DATA'] ) {
-  $form_data = $_SESSION['FORM_DATA'];
-
+    $_SESSION['FORM_DATA'] = $form_data;
+} elseif ($_SESSION['FORM_DATA']) {
+    $form_data = $_SESSION['FORM_DATA'];
 }
 
 
 // 現在のページを取得
 $page_current = 1;
-if ( !empty($_GET["page"]) && $_GET["page"] != "" ) {
-  $page_current = (int) $_GET["page"];
+if (!empty($_GET["page"]) && $_GET["page"] != "") {
+    $page_current = (int) $_GET["page"];
 }
 
 
 // 検索タイプを取得
 $search_type = '';
-if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
-  $search_type = $_GET["stype"];
-}elseif( $form_data['form_submit'] ) {
-  $search_type = $form_data['form_submit'];
+if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
+    $search_type = $_GET["stype"];
+} elseif ($form_data['form_submit']) {
+    $search_type = $form_data['form_submit'];
 }
 
 ?>
@@ -50,9 +47,11 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
 
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="ご希望の広さ、形状、賃料のオフィスがきっと見つかる！アクセス抜群の立地にある全10棟のラインナップを仲介手数料無料でご提案！！移転時期、空室状況、賃料等なんでもお気軽にご相談ください！大阪の貸オフィス・貸事務所なら若杉におまかせください！" />
-	<meta name="keywords" content="貸ビル,貸オフィス,soho,ブランドビル,大阪市の貸ビル,レンタルオフィス,オフィススペース,オフィス賃貸,若杉ビル,マンション、マンション家賃,若杉マンション" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ご希望の広さ、形状、賃料のオフィスがきっと見つかる！アクセス抜群の立地にある全10棟のラインナップを仲介手数料無料でご提案！！移転時期、空室状況、賃料等なんでもお気軽にご相談ください！大阪の貸オフィス・貸事務所なら若杉におまかせください！" />
+  <meta name="keywords" content="貸ビル,貸オフィス,soho,ブランドビル,大阪市の貸ビル,レンタルオフィス,オフィススペース,オフィス賃貸,若杉ビル,マンション、マンション家賃,若杉マンション" />
 
 
   <title>オフィス検索 │ 若杉ビル</title>
@@ -66,7 +65,7 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
 
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/slick/slick.css">
-	<link rel="stylesheet" href="/slick/slick-theme.css">
+  <link rel="stylesheet" href="/slick/slick-theme.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
   <!-- <link rel="stylesheet" href="/noto_serif/css/noto-serif.css"> -->
@@ -79,7 +78,7 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
   <script src="/js/jquery.matchHeight.js"></script>
   <script src="/js/common.js"></script>
   <script src="/slick/slick.min.js"></script>
- <script src="/lightbox/lightbox.min.js"></script>
+  <script src="/lightbox/lightbox.min.js"></script>
   <!-- /javascript -->
 
   <!--[if lt IE 9]>
@@ -87,17 +86,17 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
 <![endif]-->
 
   <script>
-        // ---------------slick slider-----------------
-        $(function() {
-          $('.js-slick01').slick({
-          autoplay: false,
-          autoplaySpeed: 5000,
-          arrows: true,
-          dots: false,
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          //レスポンシブでの動作を指定
-          responsive: [{
+    // ---------------slick slider-----------------
+    $(function() {
+      $('.js-slick01').slick({
+        autoplay: false,
+        autoplaySpeed: 5000,
+        arrows: true,
+        dots: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        //レスポンシブでの動作を指定
+        responsive: [{
             breakpoint: 1520, //ブレイクポイントを指定
             settings: {
               arrows: false,
@@ -110,32 +109,109 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
               slidesToShow: 3,
             }
           },
-           {
+          {
             breakpoint: 767,
             // settings: 'unslick',
             settings: {
               arrows: true,
               dots: true,
               centerMode: true,
-				      centerPadding: '40px',
+              centerPadding: '40px',
               slidesToShow: 1,
             }
           },
-           {
+          {
             breakpoint: 400,
             // settings: 'unslick',
             settings: {
               arrows: true,
               dots: true,
               centerMode: true,
-				      centerPadding: '20px',
+              centerPadding: '20px',
               slidesToShow: 1,
             }
           }
         ],
-        });
-  });
+      });
+    });
   </script>
+
+  <style>
+
+    /* index.phpと共通の部分 */
+    .main-officeSearch .search_ttl {
+      font-size: 32px;
+    }
+
+    .main-officeSearch .search_ttl span {
+      position: relative;
+      padding-left: 45px;
+    }
+    .main-officeSearch .search_ttl span::before {
+      background: url(/image_uniq/office_search/search_ttl_ico.png) no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 36px;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      width: 36px;
+    }
+    /* index.phpと共通の部分 END */
+
+    .searchResult {
+      background: #eff6f8;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+    .searchResult .searchResult_inner {
+      position: relative;
+    }
+    .searchResult .searchResult_body {
+      background: #fff;
+      box-sizing: border-box;
+      padding: 10px 15px;
+      width: 74%;
+    }
+
+    .searchResult .searchResult_body dl {
+      display: inline-block;
+      padding: 5px 0;
+    }
+
+    .searchResult .searchResult_body dt,
+    .searchResult .searchResult_body dd {
+      display: inline-block;
+      line-height: 40px;
+    }
+
+    .searchResult .searchResult_body dd {
+      padding: 0 30px 0 10px;
+    }
+
+    .searchResult .searchResult_body dt {
+      background: #047298;
+      color: #fff;
+      font-weight: bold;
+      padding: 0 10px;
+    }
+
+    .searchResult .searchResult_return {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      text-align: center;
+      transform: translate(0, -50%);
+      width: 24%;
+    }
+    .searchResult .searchResult_return img {
+      vertical-align: middle;
+    }
+  </style>
 </head>
 
 <body>
@@ -167,70 +243,66 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
 
         <section class="showcase topSection topSection-topics">
           <div class="l-inner">
-            <h3 id="bukken_mark" class="ts_tit heading01 u-pt60">見つかった物件</h3>
+            <h3 id="bukken_mark" class="ts_tit search_ttl u-pt60"><span>オフィス物件検索結果</span></h3>
             <ul class="l-grid l-gutter-m ts_lists">
               <?php
 
               // 物件データを取得（全ビル）
-              $data_bukken = getJSON( BLDG_OFFICE_JSON );
+              $data_bukken = getJSON(BLDG_OFFICE_JSON);
 
               // 物件データがあれば
-              if( $data_bukken != null ){
+              if ($data_bukken != null) {
 
 
                 // --------------------------------------------
-                // ★絞り込み処理 START
+                  // ★絞り込み処理 START
 
-                $data_new = array();
-                $data_new = getSearchOffice( $data_bukken, $search_type, $form_data );
+                  $data_new = array();
+                  $data_new = getSearchOffice($data_bukken, $search_type, $form_data);
 
-                // ～ 絞り込み処理 END
-                // --------------------------------------------
-
-
-                // --------------------------------------------
-                // ★検索情報を取得・出力 START
-
-                $search_option = array();
-                $search_option = getSearchOption( $data_new, $search_type, $form_data );
-                htmlSearchOption( $search_option );
-
-                // ～ 検索情報を取得・出力 END
-                // --------------------------------------------
+                  // ～ 絞り込み処理 END
+                  // --------------------------------------------
 
 
-                // ページャー情報を取得
-                $PageNavi =  getPageNavi( $data_new, $page_current );
+                  // --------------------------------------------
+                  // ★検索情報を取得・出力 START
 
-                // カウント用
-                $show_count = 0;
+                  $search_option = array();
+                  $search_option = getSearchOption($data_new, $search_type, $form_data);
+                  htmlSearchOption($search_option);
 
-                foreach ($data_new as $key => $value) {
+                  // ～ 検索情報を取得・出力 END
+                  // --------------------------------------------
 
-                  $show_count++;
 
-                  if( $show_count > $PageNavi['start_num'] ) {
+                  // ページャー情報を取得
+                  $PageNavi =  getPageNavi($data_new, $page_current);
 
-                    if( $show_count == $PageNavi['end_num'] ) {
-                      break;
-                    }
+                  // カウント用
+                  $show_count = 0;
 
-                    // 物件データを取得する
-                    $office_data = getOfficeData( $value );
+                  foreach ($data_new as $key => $value) {
+                      $show_count++;
 
-                    // 物件を出力
-                    htmlOffice( $office_data );
+                      if ($show_count > $PageNavi['start_num']) {
+                          if ($show_count == $PageNavi['end_num']) {
+                              break;
+                          }
 
-                  }
-                }
-                ?>
+                          // 物件データを取得する
+                          $office_data = getOfficeData($value);
 
-              </ul>
+                          // 物件を出力
+                          htmlOffice($office_data);
+                      }
+                  } ?>
+
+            </ul>
 
             <?php
               // ページナビを出力
-              htmlPageNavi( $page_current, $PageNavi['total_page'], $form_data );
-            }
+              htmlPageNavi($page_current, $PageNavi['total_page'], $form_data);
+              }
              ?>
 
           </div>
@@ -242,7 +314,7 @@ if( !empty($_GET["stype"]) && $_GET["stype"] != "" ) {
 
     </section>
 
-      <?php
+    <?php
       require_once($Root . "/parts/slider-contact.php");
       require_once($Root . "/parts/footer.php");
       ?>

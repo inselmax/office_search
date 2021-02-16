@@ -79,8 +79,8 @@ function htmlSearchForm_02( $session_data )
 <section class="SearchSect SearchSect-kodawari">
 	<div class="l-inner search_inner">
 		<dl class="SearchSect_wrap">
-			<dt class="search_subttl search_subttl-02 search_subttl-acco"><span class="SearchSubttl_ico">こだわり検索</span> <span
-					class="small-txt">※複数選択可能</span></dt>
+			<dt class="search_subttl search_subttl-02 search_subttl-acco"><span class="SearchSubttl_ico">こだわり検索</span>
+				<span class="small-txt">※複数選択可能</span></dt>
 			<dd class="search_cont">
 				<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post"
 					enctype="multipart/form-data">
@@ -169,7 +169,8 @@ function htmlSearchForm_03()
 <section class="SearchSect SearchSect-theme">
 	<div class="l-inner search_inner">
 		<div class="SearchSect_wrap">
-			<p class="search_subttl search_subttl-03 search_subttl-acco"><span class="SearchSubttl_ico">テーマで検索</span> </p>
+			<p class="search_subttl search_subttl-03 search_subttl-acco"><span class="SearchSubttl_ico">テーマで検索</span>
+			</p>
 			<div class="search_cont">
 				<!-- <form id="form_theme" action="/office_search/search.php#bukken_mark" method="post"
 					enctype="multipart/form-data">
@@ -386,17 +387,21 @@ function htmlPageNavi($page_current, $total_page, $form_data)
 function htmlSearchOption($search_option)
 {
     $option_html = <<<EOM
-    <div>
-      <dl>
-        <dt>検索結果</dt>
-        <dd>{$search_option['count']}件</dd>
-      </dl>
-      <dl>
-        <dt>{$search_option['option_name']}</dt>
-        <dd>{$search_option['option_content']}</dd>
-      </dl>
-      {$search_option['custom_html']}
-      <p><a href="/office_search/">戻る</a></p>
+    <div class="searchResult">
+      <div class="searchResult_inner l-clearfix">
+        <div class="searchResult_body">
+          <dl>
+            <dt>検索結果</dt>
+            <dd>{$search_option['count']}件</dd>
+          </dl>
+          <dl>
+            <dt>{$search_option['option_name']}</dt>
+            <dd>{$search_option['option_content']}</dd>
+          </dl>
+          {$search_option['custom_html']}
+        </div>
+        <p class="searchResult_return"><a href="/office_search/"><img src="/image_uniq/office_search/search_returnBtn.png" alt="条件を変えて再検索"></a></p>
+      </div>
     </div>
   EOM;
 
