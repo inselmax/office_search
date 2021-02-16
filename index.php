@@ -486,8 +486,11 @@ if ($_SESSION['FORM_DATA']) {
 
 			/* こだわり検索 */
 			.SearchSect-kodawari .search_cont .SearchBy_cont {
-				gap: 2%;
+				gap: 0% 2%;
 				grid-template-columns: 49% 49%;
+			}
+			.SearchSect-kodawari .search_cont .SearchBy_cont label {
+				margin: 2px 0;
 			}
 		}
 	</style>
