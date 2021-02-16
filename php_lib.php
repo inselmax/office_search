@@ -237,8 +237,20 @@ function sortKodawari( $office_ary, $form_data ) {
         // ビルオプションで絞り込み（A～V）
         $icon_array = array();
         $icon_array = explode(",", $value['gsx$ビル設備']['$t']);
-        if( $_POST['office_option'] ) {
-            foreach ( $_POST['office_option'] as $item => $op ) {
+
+        // ビルオプション（除外用）
+        $delete_array = array( "未選択", "外装・内装リニューアル", "SOHO" );
+
+        // ビルオプションを整理
+        foreach ( $icon_array as $item => $op ) {
+            if ( in_array($op, $delete_array, true) ) {
+                unset($icon_array[$item]);
+            }
+        }
+
+        if( $form_data['office_option'] ) {
+
+            foreach ( $form_data['office_option'] as $item => $op ) {
                 if ( in_array($op, $icon_array, true) ) {
                 }else {
                     unset($ary[$key]);
