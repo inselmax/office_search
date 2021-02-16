@@ -277,6 +277,13 @@ require_once($Root . "/office_search/html_lib.php");
 			text-align: center;
 		}
 
+		.search_cont .SearchBy_cont .SearchBy_inputWrap {
+			display: inline-block;
+		}
+		.search_cont .SearchBy_cont .SearchBy_buttonWrap {
+			display: inline-block;
+		}
+
 		.search_cont .SearchBy_cont input {
 			margin-right: 8px;
 			padding: 8px 0;
@@ -337,6 +344,62 @@ require_once($Root . "/office_search/html_lib.php");
 
 		.SearchSect-theme .SearchSect_wrap .search_cont {
 			background: #f8eff4;
+		}
+
+		/* SP */
+		@media screen and (max-width:767px) {
+			/* セクション全体 */
+			.SearchSect_wrap {
+				padding: 5px;
+			}
+			.SearchSect_wrap .search_cont {
+				font-size: 14px;
+				padding: 10px;
+			}
+			.SearchSect_wrap .search_cont .SearchBy_cont {
+				box-sizing: border-box;
+				display: block;
+				padding: 15px;
+				width: 100%;
+			}
+			
+			/* 見出し */
+			.SearchSect_wrap .search_subttl {
+				font-size: 16px;
+			}
+			.SearchSect_wrap .search_subttl .small-txt {
+				font-size: 11px;
+			}
+
+			/* 簡単検索 */
+			.SearchSect-easy .SearchSect_wrap .search_cont .SearchBy_ttl {
+				box-sizing: border-box;
+				display: block;
+				font-size: 16px;
+				padding: 5px 5px 5px 50px;
+				width: 100%;
+			}
+			.SearchSect-easy .search_cont .SearchBy_cont label {
+				padding: 0;
+				width: 50%;
+			}
+			.SearchSect-easy .search_cont .SearchBy_cont label:first-child {
+				width: 100%;
+			}
+			.SearchSect-easy .search_cont .SearchBy_cont .SearchBy_inputWrap {
+				display: block;
+				margin: 0 0 10px;
+				width: 280px;
+			}
+			.SearchSect-easy .search_cont .SearchBy_cont .SearchBy_buttonWrap {
+				display: block;
+				text-align: left;
+				width: 100%;
+			}
+			.SearchSect .SearchSect_wrap .SearchBtn {
+				margin-left: 0;
+			}
+
 		}
 
 	</style>

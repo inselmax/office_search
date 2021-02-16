@@ -33,18 +33,28 @@ function htmlSearchForm_01()
 								<a href="/image_uniq/graph_img.png" class="search_size_lightbox" data-lightbox="areaimg"
 									rel="lightbox">業種ごとの1人当たりの目安坪数</a>
 							</p>
-							<input type="text" name="tsubo_min"> 坪～　<input type="text" name="tsubo_max"> 坪
-							<button type="submit" name="form_submit" value="tsubo" class="SearchBtn SearchBtn-blue"><img
-									src="/image_uniq/office_search/search_btn.png" alt=""></button>
+							<div class="SearchBy_inputWrap">
+								<input type="text" name="tsubo_min"> 坪～　<input type="text" name="tsubo_max"> 坪
+							</div>
+							<div class="SearchBy_buttonWrap">
+								<button type="submit" name="form_submit" value="tsubo"
+									class="SearchBtn SearchBtn-blue"><img src="/image_uniq/office_search/search_btn.png"
+										alt=""></button>
+							</div>
 						</div>
 					</div>
 					<div class="SearchBy SearchBy-numb">
 						<div class="SearchBy_ttl"><span>従業員数で検索</span></div>
 						<div class="SearchBy_cont">
 							<p class="small-txt u-pb5">※1人あたり3坪計算</p>
-							<input type="text" name="hito_min"> 人～　<input type="text" name="hito_max"> 人
-							<button type="submit" name="form_submit" value="hito" class="SearchBtn SearchBtn-blue"><img
-									src="/image_uniq/office_search/search_btn.png" alt=""></button>
+							<div class="SearchBy_inputWrap">
+								<input type="text" name="hito_min"> 人～　<input type="text" name="hito_max"> 人
+							</div>
+							<div class="SearchBy_buttonWrap">
+								<button type="submit" name="form_submit" value="hito"
+									class="SearchBtn SearchBtn-blue"><img src="/image_uniq/office_search/search_btn.png"
+										alt=""></button>
+							</div>
 						</div>
 					</div>
 				</form>
