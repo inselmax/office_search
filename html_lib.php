@@ -104,7 +104,7 @@ function htmlSearchForm_02() {
 					</div>
 					<div class="SearchCont_btn">
 						<button id="resetBtn" class="clear_btn"><img src="/image_uniq/office_search/clear_btn.png" alt=""></button>
-						<button type="submit" name="form_submit" value="kodawari" class="SearchBtn SearchBtn-blue"><img src="/image_uniq/office_search/search_btn.png" alt=""></button>
+						<button type="submit" name="form_submit" value="kodawari" class="SearchBtn SearchBtn-blue"><img src="/image_uniq/office_search/search_btn_orange.png" alt=""></button>
 					</div>
 				</form>
 			</div>
