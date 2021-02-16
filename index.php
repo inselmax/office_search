@@ -384,15 +384,14 @@ if ($_SESSION['FORM_DATA']) {
 			cursor: pointer;
 			margin-left: 15px;
 			padding: 0;
-			vertical-align: middle;
-			margin-top: 3px;
+			vertical-align: top;
 		}
 
 		.SearchSect .SearchSect_wrap .clear_btn {
 			background: none;
 			border: none;
 			cursor: pointer;
-			vertical-align: middle;
+			vertical-align: top;
 		}
 
 		/* テーマで検索 */
