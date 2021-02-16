@@ -5,49 +5,53 @@
 //
 // HTML
 //
-function htmlSearchForm_01() {
-	?>
+function htmlSearchForm_01()
+{
+    ?>
 
-	<section class="SearchSect SearchSect-easy">
-		<div class="l-inner search_inner">
-			<dl class="SearchSect_wrap">
-				<dt class="search_subttl search_subttl-01"><span class="SearchSubttl_ico">簡単検索</span></dt>
-				<dd class="search_cont">
-					<form id="form_kantan" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
-						<div class="SearchBy SearchBy-area">
-							<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
-							<div class="SearchBy_cont">
-								<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
-								<?php
-									foreach ( AREA_NAME as $key => $value ) {
-										echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
-									}
-								?>
-							</div>
+<section class="SearchSect SearchSect-easy">
+	<div class="l-inner search_inner">
+		<dl class="SearchSect_wrap">
+			<dt class="search_subttl search_subttl-01"><span class="SearchSubttl_ico">簡単検索</span></dt>
+			<dd class="search_cont">
+				<form id="form_kantan" action="/office_search/search.php#bukken_mark" method="post"
+					enctype="multipart/form-data">
+					<div class="SearchBy SearchBy-area">
+						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
+						<div class="SearchBy_cont">
+							<label><input type="checkbox" name="area_all" value="all"> 全エリア</label>
+							<?php
+                                    foreach (AREA_NAME as $key => $value) {
+                                        echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
+                                    } ?>
 						</div>
-						<div class="SearchBy SearchBy-extent">
-							<div class="SearchBy_ttl"><span>広さで検索</span></div>
-							<div class="SearchBy_cont">
-								<p class="u-pb5">
-									<a href="/image_uniq/graph_img.png" class="search_size_lightbox" data-lightbox="areaimg" rel="lightbox">業種ごとの1人当たりの目安坪数</a>
-								</p>
-								<input type="text" name="tsubo_min"> 坪～　<input type="text" name="tsubo_max"> 坪
-								<button type="submit" name="form_submit" value="tsubo" class="SearchBtn SearchBtn-blue" ><img src="/image_uniq/office_search/search_btn.png" alt=""></button>
-							</div>
+					</div>
+					<div class="SearchBy SearchBy-extent">
+						<div class="SearchBy_ttl"><span>広さで検索</span></div>
+						<div class="SearchBy_cont">
+							<p class="u-pb5">
+								<a href="/image_uniq/graph_img.png" class="search_size_lightbox" data-lightbox="areaimg"
+									rel="lightbox">業種ごとの1人当たりの目安坪数</a>
+							</p>
+							<input type="text" name="tsubo_min"> 坪～　<input type="text" name="tsubo_max"> 坪
+							<button type="submit" name="form_submit" value="tsubo" class="SearchBtn SearchBtn-blue"><img
+									src="/image_uniq/office_search/search_btn.png" alt=""></button>
 						</div>
-						<div class="SearchBy SearchBy-numb">
-							<div class="SearchBy_ttl"><span>従業員数で検索</span></div>
-							<div class="SearchBy_cont">
-								<p class="small-txt u-pb5">※1人あたり3坪計算</p>
-								<input type="text" name="hito_min"> 人～　<input type="text" name="hito_max"> 人
-								<button type="submit" name="form_submit" value="hito" class="SearchBtn SearchBtn-blue" ><img src="/image_uniq/office_search/search_btn.png" alt=""></button>
-							</div>
+					</div>
+					<div class="SearchBy SearchBy-numb">
+						<div class="SearchBy_ttl"><span>従業員数で検索</span></div>
+						<div class="SearchBy_cont">
+							<p class="small-txt u-pb5">※1人あたり3坪計算</p>
+							<input type="text" name="hito_min"> 人～　<input type="text" name="hito_max"> 人
+							<button type="submit" name="form_submit" value="hito" class="SearchBtn SearchBtn-blue"><img
+									src="/image_uniq/office_search/search_btn.png" alt=""></button>
 						</div>
-					</form>
-				</dd>
-			</dl>
-		</div>
-	</section>
+					</div>
+				</form>
+			</dd>
+		</dl>
+	</div>
+</section>
 <?php
 }
 
@@ -57,59 +61,85 @@ function htmlSearchForm_01() {
 //
 // HTML
 //
-function htmlSearchForm_02() {
-	?>
-	<section class="SearchSect SearchSect-kodawari">
-		<div class="l-inner search_inner">
-			<dl class="SearchSect_wrap">
-				<dt class="search_subttl search_subttl-02"><span class="SearchSubttl_ico">こだわり検索</span> <span class="small-txt">※複数選択可能</span></dt>
-				<dd class="search_cont">
-					<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
+function htmlSearchForm_02()
+{
+    ?>
+<section class="SearchSect SearchSect-kodawari">
+	<div class="l-inner search_inner">
+		<dl class="SearchSect_wrap">
+			<dt class="search_subttl search_subttl-02"><span class="SearchSubttl_ico">こだわり検索</span> <span
+					class="small-txt">※複数選択可能</span></dt>
+			<dd class="search_cont">
+				<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post"
+					enctype="multipart/form-data">
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all"><span class="label_check"> 全エリア</span></label>
+							<label><input type="checkbox" name="area_all" value="all"><span class="label_check">
+									全エリア</span></label>
 							<?php
-								foreach ( AREA_NAME as $key => $value ) {
-									echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> <span class="label_check">' . $value . '</span></label>';
-								}
-							?>
+                                foreach (AREA_NAME as $key => $value) {
+                                    echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> <span class="label_check">' . $value . '</span></label>';
+                                } ?>
 						</div>
-					<div>
-					<div class="SearchBy SearchBy-kodawari">
-						<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
-							<div class="SearchBy_cont SearchBy_cont-kodawari">
-								<label><input type="checkbox" name="office_option[]" value="J"> <span class="label_check">駅スグ</span></label>
-								<label><input type="checkbox" name="office_option[]" value="I"> <span class="label_check">駅直結</span></label>
-								<label><input type="checkbox" name="office_option[]" value="D"> <span class="label_check">貸会議室</span></label>
-								<label><input type="checkbox" name="office_option[]" value="E"> <span class="label_check">貸駐車場</span></label>
-								<label><input type="checkbox" name="office_option_1fk" value="1fk"> <span class="label_check">1Fコンビニ</span></label>
-								<label><input type="checkbox" name="office_option[]" value="P"> <span class="label_check">EVリニューアル</span></label>
-								<label><input type="checkbox" name="office_option[]" value="O"> <span class="label_check">空調リニューアル</span></label>
-								<label><input type="checkbox" name="office_option[]" value="N"> <span class="label_check">給湯室リニューアル</span></label>
-								<label><input type="checkbox" name="office_option[]" value="M"> <span class="label_check">トイレリニューアル</span></label>
-								<label><input type="checkbox" name="office_option[]" value="B"> <span class="label_check">個別空調</span></label>
-								<label><input type="checkbox" name="office_option[]" value="C"> <span class="label_check">光回線</span></label>
-								<label><input type="checkbox" name="office_option[]" value="L"> <span class="label_check">OAフロア対応</span></label>
-								<label><input type="checkbox" name="office_option[]" value="F"> <span class="label_check">ビル前ポスト</span></label>
-								<label><input type="checkbox" name="office_option[]" value="G"> <span class="label_check">管理人常駐</span></label>
-								<label><input type="checkbox" name="office_option[]" value="Q"> <span class="label_check">防犯カメラ</span></label>
-								<label><input type="checkbox" name="office_option[]" value="A"> <span class="label_check">24時間利用</span></label>
-								<label><input type="checkbox" name="office_option_10fmin" value="10fmin"> <span class="label_check">高階層(10階以上)</span></label>
-								<label><input type="checkbox" name="office_option_3fmin" value="3fmin"> <span class="label_check">低階層(3階以上)</span></label>
-								<label><input type="checkbox" name="office_option_fmax" value="fmax"> <span class="label_check">最上階</span></label>
-								<label><input type="checkbox" name="office_option_1fshop" value="1fshop"> <span class="label_check">1F店舗空物件</span></label>
+						<div>
+							<div class="SearchBy SearchBy-kodawari">
+								<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
+								<div class="SearchBy_cont SearchBy_cont-kodawari">
+									<label><input type="checkbox" name="office_option[]" value="J"> <span
+											class="label_check">駅スグ</span></label>
+									<label><input type="checkbox" name="office_option[]" value="I"> <span
+											class="label_check">駅直結</span></label>
+									<label><input type="checkbox" name="office_option[]" value="D"> <span
+											class="label_check">貸会議室</span></label>
+									<label><input type="checkbox" name="office_option[]" value="E"> <span
+											class="label_check">貸駐車場</span></label>
+									<label><input type="checkbox" name="office_option_1fk" value="1fk"> <span
+											class="label_check">1Fコンビニ</span></label>
+									<label><input type="checkbox" name="office_option[]" value="P"> <span
+											class="label_check">EVリニューアル</span></label>
+									<label><input type="checkbox" name="office_option[]" value="O"> <span
+											class="label_check">空調リニューアル</span></label>
+									<label><input type="checkbox" name="office_option[]" value="N"> <span
+											class="label_check">給湯室リニューアル</span></label>
+									<label><input type="checkbox" name="office_option[]" value="M"> <span
+											class="label_check">トイレリニューアル</span></label>
+									<label><input type="checkbox" name="office_option[]" value="B"> <span
+											class="label_check">個別空調</span></label>
+									<label><input type="checkbox" name="office_option[]" value="C"> <span
+											class="label_check">光回線</span></label>
+									<label><input type="checkbox" name="office_option[]" value="L"> <span
+											class="label_check">OAフロア対応</span></label>
+									<label><input type="checkbox" name="office_option[]" value="F"> <span
+											class="label_check">ビル前ポスト</span></label>
+									<label><input type="checkbox" name="office_option[]" value="G"> <span
+											class="label_check">管理人常駐</span></label>
+									<label><input type="checkbox" name="office_option[]" value="Q"> <span
+											class="label_check">防犯カメラ</span></label>
+									<label><input type="checkbox" name="office_option[]" value="A"> <span
+											class="label_check">24時間利用</span></label>
+									<label><input type="checkbox" name="office_option_10fmin" value="10fmin"> <span
+											class="label_check">高階層(10階以上)</span></label>
+									<label><input type="checkbox" name="office_option_3fmin" value="3fmin"> <span
+											class="label_check">低階層(3階以上)</span></label>
+									<label><input type="checkbox" name="office_option_fmax" value="fmax"> <span
+											class="label_check">最上階</span></label>
+									<label><input type="checkbox" name="office_option_1fshop" value="1fshop"> <span
+											class="label_check">1F店舗空物件</span></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="SearchCont_btn">
-						<button id="resetBtn" class="clear_btn"><img src="/image_uniq/office_search/clear_btn.png" alt=""></button>
-						<button type="submit" name="form_submit" value="kodawari" class="SearchBtn SearchBtn-blue"><img src="/image_uniq/office_search/search_btn_orange.png" alt=""></button>
-					</div>
+						<div class="SearchCont_btn">
+							<button id="resetBtn" class="clear_btn"><img src="/image_uniq/office_search/clear_btn.png"
+									alt=""></button>
+							<button type="submit" name="form_submit" value="kodawari"
+								class="SearchBtn SearchBtn-blue"><img
+									src="/image_uniq/office_search/search_btn_orange.png" alt=""></button>
+						</div>
 				</form>
-			</div>
-		</div>
-	</section>
+	</div>
+	</div>
+</section>
 <?php
 }
 
@@ -119,30 +149,33 @@ function htmlSearchForm_02() {
 //
 // HTML
 //
-function htmlSearchForm_03() {
-	?>
-  <section class="SearchSect SearchSect-theme">
-	  <div class="l-inner search_inner">
-		  <p>テーマで検索</p>
-		  <div>
-			  <form id="form_theme" action="/office_search/search.php#bukken_mark" method="post" enctype="multipart/form-data">
-				  <div>
-            <?php
-            foreach ( SEARCH_THEME_NAME as $key => $value ) {
-              $checked = '';
-              if( $key < 1 ) {
-                $checked = 'checked';
-              }
-              echo '<label class="theme_label"><input class="hide" type="radio" name="theme_type" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '>' . $value . '</label>';
-            }
-            ?>
-            <input type="hidden" name="form_submit" value="theme">
-					  <input class="hide" type="submit">
-				  </div>
-			  </form>
-		  </div>
-	  </div>
-  </section>
+function htmlSearchForm_03()
+{
+    ?>
+<section class="SearchSect SearchSect-theme">
+	<div class="l-inner search_inner">
+		<div class="SearchSect_wrap">
+			<p class="search_subttl search_subttl-03"><span class="SearchSubttl_ico">テーマで検索</span> </p>
+			<div class="search_cont">
+				<form id="form_theme" action="/office_search/search.php#bukken_mark" method="post"
+					enctype="multipart/form-data">
+					<div>
+						<?php
+            foreach (SEARCH_THEME_NAME as $key => $value) {
+                $checked = '';
+                if ($key < 1) {
+                    $checked = 'checked';
+                }
+                echo '<label class="theme_label"><input class="hide" type="radio" name="theme_type" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '>' . $value . '</label>';
+            } ?>
+						<input type="hidden" name="form_submit" value="theme">
+						<input class="hide" type="submit">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
 <?php
 }
 
@@ -152,18 +185,17 @@ function htmlSearchForm_03() {
 //
 // return String(HTML)
 //
-function getHtmlNew( $date ) {
+function getHtmlNew($date)
+{
+    $t1 = strtotime(date('y-m-d h:i:s', time()));
+    $t2 = strtotime($date);
 
-  $t1 = strtotime(date('y-m-d h:i:s', time()));
-  $t2 = strtotime($date);
+    $html = '<span class="topicsContent_new">NEW</span>';
+    if (ceil(($t1 - $t2) / 86400) > 30) {
+        $html = '';
+    }
 
-  $html = '<span class="topicsContent_new">NEW</span>';
-  if (ceil(($t1 - $t2) / 86400) > 30) {
-      $html = '';
-  }
-
-  return $html;
-
+    return $html;
 }
 
 
@@ -173,18 +205,17 @@ function getHtmlNew( $date ) {
 //
 // return String(HTML)
 //
-function getHtmlStatus( $state ) {
+function getHtmlStatus($state)
+{
+    $html = '<p class="topicsContent_state topicsContent_state-will">商談中</p>';
 
-  $html = '<p class="topicsContent_state topicsContent_state-will">商談中</p>';
+    if ($state == '空き予定') {
+        $html = '<p class="topicsContent_state topicsContent_state-will">空き予定</p>';
+    } elseif ($state == '空きあり') {
+        $html = '<p class="topicsContent_state topicsContent_state-now">空きあり</p>';
+    }
 
-  if ($state == '空き予定') {
-    $html = '<p class="topicsContent_state topicsContent_state-will">空き予定</p>';
-  }elseif ($state == '空きあり') {
-    $html = '<p class="topicsContent_state topicsContent_state-now">空きあり</p>';
-  }
-
-  return $html;
-
+    return $html;
 }
 
 
@@ -194,9 +225,9 @@ function getHtmlStatus( $state ) {
 //
 // HTML
 //
-function htmlOffice( $office_data ) {
-
-  $office_html = <<<EOM
+function htmlOffice($office_data)
+{
+    $office_html = <<<EOM
     <li class="ts_list l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-12-sp">
       <article class="topicsContent">
         <div class="topicsContent_inner">
@@ -229,8 +260,7 @@ function htmlOffice( $office_data ) {
     </li>
   EOM;
 
-  echo $office_html;
-
+    echo $office_html;
 }
 
 
@@ -241,32 +271,31 @@ function htmlOffice( $office_data ) {
 //
 // HTML
 //
-function htmlPageNavi( $page_current, $total_page ) {
-
-  echo '<div class="page-navi"><span class="page-show pages">' . $page_current . '&nbsp;/&nbsp;' . $total_page . '</span>';
+function htmlPageNavi($page_current, $total_page)
+{
+    echo '<div class="page-navi"><span class="page-show pages">' . $page_current . '&nbsp;/&nbsp;' . $total_page . '</span>';
 
     if ($page_current != 1) {
-      echo '<a class="page-back pages page_button" href="/office_search/search.php?page=1">«</a>';
+        echo '<a class="page-back pages page_button" href="/office_search/search.php?page=1">«</a>';
     }
     if ($page_current > 2) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 2) . '">' . ($page_current - 2) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 2) . '">' . ($page_current - 2) . '</a>';
     }
     if ($page_current > 1) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 1) . '">' . ($page_current - 1) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 1) . '">' . ($page_current - 1) . '</a>';
     }
     echo '<span class="page-curr pages page_button">' . $page_current . '</span>';
     if ($page_current < $total_page) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 1) . '">' . ($page_current + 1) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 1) . '">' . ($page_current + 1) . '</a>';
     }
     if ($page_current < $total_page - 1) {
-      echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 2) . '">' . ($page_current + 2) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 2) . '">' . ($page_current + 2) . '</a>';
     }
     if ($page_current < $total_page) {
-      echo '<a class="page-font pages page_button" href="/office_search/search.php?page=' . $total_page . '">»</a>';
+        echo '<a class="page-font pages page_button" href="/office_search/search.php?page=' . $total_page . '">»</a>';
     }
 
-  echo '</div>';
-
+    echo '</div>';
 }
 
 
@@ -276,9 +305,9 @@ function htmlPageNavi( $page_current, $total_page ) {
 //
 // HTML
 //
-function htmlSearchOption( $search_option ) {
-
-  $option_html = <<<EOM
+function htmlSearchOption($search_option)
+{
+    $option_html = <<<EOM
     <div>
       <dl>
         <dt>検索結果</dt>
@@ -293,6 +322,5 @@ function htmlSearchOption( $search_option ) {
     </div>
   EOM;
 
-  echo $option_html;
-
+    echo $option_html;
 }

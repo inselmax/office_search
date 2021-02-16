@@ -145,6 +145,13 @@ require_once($Root . "/office_search/html_lib.php");
 			width: 28px;
 		}
 
+		.SearchSect-theme .search_subttl .SearchSubttl_ico::before {
+			background: url(/image_uniq/office_search/subttl03_ico.png) no-repeat;
+			background-size: contain;
+			height: 30px;
+			width: 30px;
+		}
+
 		.SearchSect_wrap .search_cont {
 			background: #eff6f8;
 			padding: 15px;
@@ -317,6 +324,19 @@ require_once($Root . "/office_search/html_lib.php");
 			cursor: pointer;
 			vertical-align: middle;
 		}
+
+		/* テーマで検索 */
+		.SearchSect.SearchSect-theme .SearchSect_wrap {
+			border: 1px solid #f46991;
+		}
+		.SearchSect .search_subttl.search_subttl-03 {
+			background: #f46991;
+		}
+
+		.SearchSect-theme .SearchSect_wrap .search_cont {
+			background: #f8eff4;
+		}
+
 	</style>
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
