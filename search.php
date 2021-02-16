@@ -19,7 +19,7 @@ if( $_POST ) {
 // 現在のページを取得
 $page_current = 1;
 if (!empty($_GET["page"]) && $_GET["page"] != "") {
-  $page_current = $_GET["page"];
+  $page_current = (int) $_GET["page"];
 }
 
 ?>

@@ -573,19 +573,24 @@ function getPageNavi( $office_data, $page_current ) {
     $show_num = DISPLAY_OF_PAGE;
 
     $start_num = ( $page_current - 1 ) * $show_num;
-    if ($page_current == 1) {
+    if ( $page_current == 1 ) {
         $start_num = 0;
     }
 
     $end_num = ( $page_current * $show_num ) + 1;
 
-    $total = count($office_data);
-    $total_page = floor($total / $show_num) + 1;
-    for( $i = 0; $i < 10; $i++ ) {
-        if( $total == ( $show_num * ( $i + 1 ) ) ) {
-            $total_page = $i;
-        }
+    $total = count( $office_data );
+    if( $total % $show_num === 0 ) {
+        $total_page = $total / $show_num;
+    }else {
+        $total_page = floor( $total / $show_num ) + 1;
     }
+    // $total_page = floor($total / $show_num) + 1;
+    // for( $i = 0; $i < 10; $i++ ) {
+    //     if( $total == ( $show_num * ( $i + 1 ) ) ) {
+    //         $total_page = $i;
+    //     }
+    // }
 
     $option = array(
         'start_num' => $start_num,
