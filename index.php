@@ -176,6 +176,7 @@ require_once($Root . "/office_search/html_lib.php");
 			font-size: 17px;
 			font-weight: 600;
 			padding-left: 47px;
+			padding-right: 10px;
 			position: relative;
 			vertical-align: middle;
 			width: 250px;
@@ -267,6 +268,7 @@ require_once($Root . "/office_search/html_lib.php");
 		}
 
 		.search_cont .SearchBy_cont label {
+			display: inline-block;
 			padding-right: 25px;
 		}
 
