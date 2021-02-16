@@ -6,6 +6,13 @@ $Root = $_SERVER['DOCUMENT_ROOT'];
 require_once($Root . "/office_search/config.php");
 require_once($Root . "/office_search/html_lib.php");
 
+// セッションを取得
+$form_data = array();
+if ($_SESSION['FORM_DATA']) {
+	$form_data = $_SESSION['FORM_DATA'];
+	var_dump($form_data);
+}
+
 ?>
 
 <!DOCTYPE html>
