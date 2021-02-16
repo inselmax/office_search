@@ -250,13 +250,12 @@ require_once($Root . "/office_search/html_lib.php");
 		position: relative;
 		width: 100%;
 	}
-	.SearchSect-kodawari .SearchBy_cont input[type="checkbox"] + label::before {
-
-	}
-
 	.SearchBy_cont input:checked + .label_check {
 		background: #f19149;
 		color: #FFF;
+	}
+	.SearchSect .SearchSect_wrap .SearchCont_btn {
+		text-align: center;
 	}
 	.SearchSect .SearchSect_wrap .SearchBtn {
 		background: none;
