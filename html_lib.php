@@ -185,56 +185,56 @@ function htmlSearchForm_03()
 			<ul class="ts_menu l-grid l-gutter-s">
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=1#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=01">
 							<span class="ButtonD_inner ButtonD_inner-01">SOHO・創業<br class="is-Tab_Sp">オフィス</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=2#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=02">
 							<span class="ButtonD_inner ButtonD_inner-05">駅チカ･駅直結</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=20#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=03">
 							<span class="ButtonD_inner ButtonD_inner-02">貸会議室あり</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=3#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=04">
 							<span class="ButtonD_inner ButtonD_inner-08">貸駐車場あり</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=4#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=05">
 							<span class="ButtonD_inner ButtonD_inner-06">１F店舗空物件</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=5#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=06">
 							<span class="ButtonD_inner ButtonD_inner-03">外装・内装<br>リニューアル</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=6#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=07">
 							<span class="ButtonD_inner ButtonD_inner-07">１Fコンビニ</span>
 						</a>
 					</p>
 				</li>
 				<li class="l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-6-sp">
 					<p class="ButtonD-light ButtonD-icon ButtonD-arrow">
-						<a href="/office_search/?type=7#bukken_mark">
+						<a href="/office_search/search.php?stype=theme&theme=08">
 							<span class="ButtonD_inner ButtonD_inner-04">管理人常駐</span>
 						</a>
 					</p>

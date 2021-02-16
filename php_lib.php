@@ -75,16 +75,16 @@ function getOfficeData( $office_ary ) {
 // --------------------------------------------------------
 // ・物件データを絞り込む
 // $office_ary Array
+// $form_type String
 // $form_data $_POST
 //
 // return Array
 //
-function getSearchOffice( $office_ary, $form_data ) {
+function getSearchOffice( $office_ary, $form_type, $form_data ) {
 
     $ary = array();
-    $submit_type = $form_data['form_submit'];
 
-    switch( $submit_type ) {
+    switch( $form_type ) {
         case "tsubo":
             $ary = sortTsubo( $office_ary, $form_data );
             break;
@@ -315,7 +315,7 @@ function sortTheme( $office_ary, $form_data ) {
 
     $ary = array();
 
-    switch( $form_data['theme_type'] ) {
+    switch( $form_data['theme'] ) {
 
         // SOHO・創業オフィス
         case "01":
@@ -541,7 +541,7 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
         // テーマで検索
         case "theme":
             $option_name = 'テーマ';
-            $option_content = SEARCH_THEME_NAME[$form_data['theme_type']];
+            $option_content = SEARCH_THEME_NAME[$form_data['theme']]["name"];
             break;
 
         default:
