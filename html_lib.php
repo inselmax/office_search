@@ -336,31 +336,38 @@ function htmlOffice($office_data)
 // ・ページナビ
 // $page_current Int
 // $total_page Int
+// $form_data Array
 //
 // HTML
 //
-function htmlPageNavi($page_current, $total_page)
+function htmlPageNavi($page_current, $total_page, $form_data)
 {
+
+	$search_prm = '';
+	if( !empty($form_data['stype']) && !empty($form_data['theme']) ) {
+		$search_prm = '&stype=' . $form_data['stype'] . '&theme=' . $form_data['theme'] ;
+	}
+
     echo '<div class="page-navi"><span class="page-show pages">' . $page_current . '&nbsp;/&nbsp;' . $total_page . '</span>';
 
     if ($page_current != 1) {
-        echo '<a class="page-back pages page_button" href="/office_search/search.php?page=1">«</a>';
+        echo '<a class="page-back pages page_button" href="/office_search/search.php?page=1' . $search_prm . $search_prm . '">«</a>';
     }
     if ($page_current > 2) {
-        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 2) . '">' . ($page_current - 2) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 2) . $search_prm . '">' . ($page_current - 2) . '</a>';
     }
     if ($page_current > 1) {
-        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 1) . '">' . ($page_current - 1) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current - 1) . $search_prm . '">' . ($page_current - 1) . '</a>';
     }
     echo '<span class="page-curr pages page_button">' . $page_current . '</span>';
     if ($page_current < $total_page) {
-        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 1) . '">' . ($page_current + 1) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 1) . $search_prm . '">' . ($page_current + 1) . '</a>';
     }
     if ($page_current < $total_page - 1) {
-        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 2) . '">' . ($page_current + 2) . '</a>';
+        echo '<a class="page-reg pages page_button" href="/office_search/search.php?page=' . ($page_current + 2) . $search_prm . '">' . ($page_current + 2) . '</a>';
     }
     if ($page_current < $total_page) {
-        echo '<a class="page-font pages page_button" href="/office_search/search.php?page=' . $total_page . '">»</a>';
+        echo '<a class="page-font pages page_button" href="/office_search/search.php?page=' . $total_page . $search_prm . '">»</a>';
     }
 
     echo '</div>';
