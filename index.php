@@ -223,7 +223,7 @@ require_once($Root . "/office_search/html_lib.php");
 			width: 23px;
 		}
 
-		.SearchBy-extent .SearchBy_ttl .SearchBy_ttl span:before {
+		.SearchBy-extent .SearchBy_ttl span:before {
 			background: url(/image_uniq/office_search/extent_ico.png) no-repeat;
 			background-size: contain;
 			height: 22px;
