@@ -10,7 +10,7 @@ require_once($Root . "/office_search/html_lib.php");
 $form_data = array();
 if ($_SESSION['FORM_DATA']) {
     $form_data = $_SESSION['FORM_DATA'];
-    var_dump($form_data);
+    //var_dump($form_data);
 }
 
 ?>
