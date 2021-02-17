@@ -515,6 +515,10 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
                 $option_content = '全エリア';
             }
 
+            if( $form_data['area_all'] ) {
+                $option_content = '全エリア';
+            }
+
             // その他オプション
             if( $form_data['office_option'] ) {
                 foreach ( $form_data['office_option'] as $key => $value ) {
