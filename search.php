@@ -161,12 +161,14 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       -ms-transform: translateY(-50%);
       width: 36px;
     }
-		@media screen and (max-width:767px) {
-			.main-officeSearch .search_ttl {
-				font-size: 21px;
-				margin-bottom: 10px;
-			}
-		}
+
+    @media screen and (max-width:767px) {
+      .main-officeSearch .search_ttl {
+        font-size: 21px;
+        margin-bottom: 10px;
+      }
+    }
+
     /* index.phpと共通の部分 END */
 
     .searchResult {
@@ -201,6 +203,13 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       padding: 0 30px 0 10px;
     }
 
+    .searchResult .searchResult_body dd>span {
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+      padding-right: 2px;
+    }
+
     .searchResult .searchResult_body dt {
       background: #047298;
       color: #fff;
@@ -226,25 +235,35 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       .searchResult {
         padding: 20px;
       }
+
       .searchResult .searchResult_body {
         margin-bottom: 10px;
         width: 100%;
       }
+
       .searchResult .searchResult_return {
         position: static;
         transform: none;
         width: 100%;
       }
-      .searchResult .searchResult_body dt, .searchResult .searchResult_body dd {
+
+      .searchResult .searchResult_body dt,
+      .searchResult .searchResult_body dd {
         font-size: 14px;
         line-height: 25px;
       }
+
       .searchResult .searchResult_body dt {
         text-align: center;
         width: 65px;
       }
+
       .searchResult .searchResult_body dd {
         padding: 0 20px 0 5px;
+      }
+
+      .searchResult .searchResult_body dd>span {
+        font-size: 18px;
       }
     }
   </style>
