@@ -280,13 +280,15 @@ $("#form_kodawari .area_label").on('click', function(){
 			color: #d9752b;
 			padding-left: 32px;
 		}
-
+		.SearchBy .SearchBy_ttl span {
+			position: relative;
+		}
 		.SearchBy .SearchBy_ttl span::before {
 			content: "";
 			display: inline-block;
 			position: absolute;
 			top: 50%;
-			left: 7%;
+			left: -32px;
 			transform: translateY(-50%);
 			-webkit-transform: translateY(-50%);
 			-ms-transform: translateY(-50%);
@@ -339,21 +341,24 @@ $("#form_kodawari .area_label").on('click', function(){
 		}
 
 		.SearchSect-kodawari .search_cont .SearchBy_cont {
-			display: grid;
-			gap: 1.25%;
-			grid-template-columns: 13.1% 13.1% 13.1% 13.1% 13.1% 13.1% 13.1%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			margin-top: 15px;
 			width: auto;
 		}
 
 		.SearchSect-kodawari .search_cont .SearchBy_cont-kodawari {
-			display: grid;
-			gap: 1.25%;
-			grid-template-columns: 18.8% 18.8% 18.8% 18.8% 18.8%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
-
-		.SearchBy_cont-kodawari label {
+		.SearchSect-kodawari .SearchBy_cont label {
+			width: 13.1%;
+		}
+		.search_cont .SearchBy_cont-kodawari label {
 			margin-bottom: 8px;
+			width: 18.8%;
 		}
 
 		.search_cont .SearchBy_cont .search_size_lightbox {
@@ -537,12 +542,12 @@ $("#form_kodawari .area_label").on('click', function(){
 
 			/* こだわり検索 */
 			.SearchSect-kodawari .search_cont .SearchBy_cont {
-				gap: 0% 2%;
-				grid-template-columns: 49% 49%;
+
 			}
 
 			.SearchSect-kodawari .search_cont .SearchBy_cont label {
 				margin: 2px 0;
+				width: 48%;
 			}
 
 			.SearchSect_wrap .search_cont .SearchBy-kodawari {
