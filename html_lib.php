@@ -409,7 +409,7 @@ function htmlSearchOption($search_option)
         <div class="searchResult_body">
           <dl>
             <dt>検索結果</dt>
-            <dd>{$search_option['count']}件</dd>
+            <dd><span>{$search_option['count']}</span>件</dd>
           </dl>
           <dl>
             <dt>{$search_option['option_name']}</dt>
