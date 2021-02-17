@@ -32,7 +32,7 @@ function htmlSearchForm_01( $session_data ) {
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all'] && $form_flg) echo 'checked'; ?>> 全エリア</label>
+							<label class="label_area_all"><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all'] && $form_flg) echo 'checked'; ?>> 全エリア</label>
 							<?php
 								$area_item_flg = null;
 								if( $session_data['area_item'] && $form_flg ) {
@@ -45,7 +45,7 @@ function htmlSearchForm_01( $session_data ) {
 											$checked = "checked";
 										}
 									}
-									echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> ' . $value . '</label>';
+									echo '<label class="label_area_item"><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> ' . $value . '</label>';
 								}
 							?>
 						</div>
@@ -115,7 +115,7 @@ function htmlSearchForm_02( $session_data ) {
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all'] && $form_flg) echo 'checked'; ?>><span class="label_check">全エリア</span></label>
+							<label class="label_area_all"><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all'] && $form_flg) echo 'checked'; ?>><span class="label_check">全エリア</span></label>
 							<?php
 								$area_item_flg = null;
 								if( $session_data['area_item'] && $form_flg ) {
@@ -128,7 +128,7 @@ function htmlSearchForm_02( $session_data ) {
 											$checked = "checked";
 										}
 									}
-                                    echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> <span class="label_check">' . $value . '</span></label>';
+                                    echo '<label class="label_area_item"><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> <span class="label_check">' . $value . '</span></label>';
                                 }
 							?>
 						</div>
