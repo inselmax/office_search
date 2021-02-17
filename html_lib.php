@@ -107,9 +107,9 @@ function htmlSearchForm_02( $session_data ) {
 <section class="SearchSect SearchSect-kodawari">
 	<div class="l-inner search_inner">
 		<dl class="SearchSect_wrap">
-			<dt class="search_subttl search_subttl-02 search_subttl-acco"><span class="SearchSubttl_ico">こだわり検索</span>
+			<dt class="search_subttl search_subttl-02 search_subttl-acco <?php if($form_flg) echo 'active'; ?>"><span class="SearchSubttl_ico">こだわり検索</span>
 				<span class="small-txt">※複数選択可能</span></dt>
-			<dd class="search_cont">
+			<dd class="search_cont" style="<?php if($form_flg) echo 'display: block'; ?>">
 				<form id="form_kodawari" action="/office_search/search.php#bukken_mark" method="post"
 					enctype="multipart/form-data">
 					<div class="SearchBy SearchBy-area">
@@ -182,18 +182,24 @@ function htmlSearchForm_02( $session_data ) {
 
 // --------------------------------------------------------
 // ・テーマで検索
+// $session_data Array
 //
 // HTML
 //
-function htmlSearchForm_03()
-{
-    ?>
+function htmlSearchForm_03( $session_data ) {
+
+	$form_flg = false;
+	if( !empty($session_data['stype']) && $session_data['stype'] === "theme" ) {
+		$form_flg = true;
+	}
+
+?>
 <section class="SearchSect SearchSect-theme">
 	<div class="l-inner search_inner">
 		<div class="SearchSect_wrap">
-			<p class="search_subttl search_subttl-03 search_subttl-acco"><span class="SearchSubttl_ico">テーマで検索</span>
+			<p class="search_subttl search_subttl-03 search_subttl-acco <?php if($form_flg) echo 'active'; ?>"><span class="SearchSubttl_ico">テーマで検索</span>
 			</p>
-			<div class="search_cont">
+			<div class="search_cont" style="<?php if($form_flg) echo 'display: block'; ?>">
 				<!-- <form id="form_theme" action="/office_search/search.php#bukken_mark" method="post"
 					enctype="multipart/form-data">
 					<div>

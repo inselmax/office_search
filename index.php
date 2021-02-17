@@ -603,7 +603,7 @@ $("#form_kodawari .area_label").on('click', function(){
       // こだわり検索
       htmlSearchForm_02($form_data);
       // テーマで検索
-      htmlSearchForm_03();
+      htmlSearchForm_03($form_data);
 
       // セッションを削除
       if ($_SESSION['FORM_DATA']) {
