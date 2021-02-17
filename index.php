@@ -56,11 +56,6 @@ if ($_SESSION['FORM_DATA']) {
 
 	<script>
 		$(function() {
-			// // テーマ検索（submit実行）
-			// $('.theme_label').on('click', function() {
-			// 	$('#form_theme').submit();
-			// });
-
 			// こだわり検索（リセット）
 			$('#resetBtn').on('click', function() {
 				$('.SearchBy_cont-kodawari .office_option_input').prop('checked', false);
@@ -77,6 +72,47 @@ if ($_SESSION['FORM_DATA']) {
 					$_target.slideUp();
 				}
 			});
+
+// エリアチェック
+function inputCheck( $_this, $_formId ) {
+	// オブジェクトを格納
+	var $_input = $_this.children('input');;
+	// 値を格納
+	var areaVal = $_input.val();
+	// 状態を格納
+	var isChecked = $_input.prop('checked');
+	// チェック済みの要素を配列に格納（南森町～京橋）
+	var checkedList = $($_formId + ' [class="area_item_input"]:checked').map(function(){ return $(this).val(); }).get();
+	// チェックをカウント
+	var countNum = checkedList.length;
+
+	// 分岐処理
+	if( areaVal === "all" ) {
+		if( isChecked ) {
+			$($_formId + " .area_label.area_item input[type='checkbox']").prop("checked", true);
+		}else {
+			$($_formId + " .area_label.area_item input[type='checkbox']").prop("checked", false);
+		}
+	}else {
+		// 全部にチェックが入っていれば全エリアにチェックを入れる
+		if( countNum > 5 ) {
+			$($_formId + " .area_label.area_all input[type='checkbox']").prop("checked", true);
+		}else {
+			$($_formId + " .area_label.area_all input[type='checkbox']").prop("checked", false);
+		}
+	}
+}
+
+// 簡単検索のエリアクリックイベント
+$("#form_kantan .area_label").on('click', function(){
+	inputCheck( $(this), "#form_kantan" );
+});
+
+// こだわり検索のエリアクリックイベント
+$("#form_kodawari .area_label").on('click', function(){
+	inputCheck( $(this), "#form_kodawari" );
+});
+
 		});
 	</script>
 
@@ -325,6 +361,7 @@ if ($_SESSION['FORM_DATA']) {
 		}
 
 		.SearchSect-easy .SearchBy_cont label {
+			cursor: pointer;
 			display: inline-block;
 		}
 
@@ -419,7 +456,7 @@ if ($_SESSION['FORM_DATA']) {
 			.SearchSect .SearchSect_wrap .SearchBtn {
 				margin-left: 0;
 			}
-			
+
 			/* こだわり検索 */
 			.SearchSect-kodawari .search_cont .SearchBy_cont {
 				font-size: 12px;

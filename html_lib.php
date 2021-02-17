@@ -45,7 +45,7 @@ function htmlSearchForm_01( $session_data ) {
 											$checked = "checked";
 										}
 									}
-									echo '<label class="area_label area_item"><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> ' . $value . '</label>';
+									echo '<label class="area_label area_item"><input class="area_item_input" type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> ' . $value . '</label>';
 								}
 							?>
 						</div>
@@ -128,7 +128,7 @@ function htmlSearchForm_02( $session_data ) {
 											$checked = "checked";
 										}
 									}
-                                    echo '<label class="area_label area_item"><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> <span class="label_check">' . $value . '</span></label>';
+                                    echo '<label class="area_label area_item"><input class="area_item_input" type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> <span class="label_check">' . $value . '</span></label>';
                                 }
 							?>
 						</div>
