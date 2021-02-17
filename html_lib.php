@@ -412,15 +412,13 @@ function htmlSearchOption($search_option)
     <div class="searchResult">
       <div class="searchResult_inner l-clearfix">
         <div class="searchResult_body">
-          <dl>
-            <dt>検索結果</dt>
-            <dd><span>{$search_option['count']}</span>件</dd>
-          </dl>
-          <dl>
-            <dt>{$search_option['option_name']}</dt>
-            <dd>{$search_option['option_content']}</dd>
-          </dl>
+          <table>
+            <th><span>検索結果</span></th>
+            <td><span>{$search_option['count']}</span>件</td>
+            <th><span>{$search_option['option_name']}</span></th>
+            <td>{$search_option['option_content']}</td>
           {$search_option['custom_html']}
+          </table>
         </div>
         <p class="searchResult_return"><a href="/office_search/"><img src="/image_uniq/office_search/search_returnBtn.png" alt="条件を変えて再検索"></a></p>
       </div>

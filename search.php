@@ -188,31 +188,38 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
       width: 74%;
     }
 
-    .searchResult .searchResult_body dl {
+    .searchResult .searchResult_body table {
       display: inline-block;
       padding: 5px 0;
+      vertical-align: middle;
     }
 
-    .searchResult .searchResult_body dt,
-    .searchResult .searchResult_body dd {
-      display: inline-block;
+    .searchResult .searchResult_body th,
+    .searchResult .searchResult_body td {
       line-height: 40px;
+      vertical-align: top;
     }
 
-    .searchResult .searchResult_body dd {
+    .searchResult .searchResult_body td {
       padding: 0 30px 0 10px;
+      min-width: 52px;
     }
 
-    .searchResult .searchResult_body dd>span {
+    .searchResult .searchResult_body td>span {
       color: red;
       font-size: 24px;
       font-weight: bold;
       padding-right: 2px;
     }
 
-    .searchResult .searchResult_body dt {
+    .searchResult .searchResult_body th {
+      white-space: nowrap;
+    }
+
+    .searchResult .searchResult_body th span {
       background: #047298;
       color: #fff;
+      display: inline-block;
       font-weight: bold;
       padding: 0 10px;
     }
@@ -247,22 +254,29 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
         width: 100%;
       }
 
-      .searchResult .searchResult_body dt,
-      .searchResult .searchResult_body dd {
-        font-size: 14px;
-        line-height: 25px;
+      .searchResult .searchResult_body table {
+        display: block;
       }
 
-      .searchResult .searchResult_body dt {
-        text-align: center;
+      .searchResult .searchResult_body th,
+      .searchResult .searchResult_body td {
+        font-size: 14px;
+        line-height: 25px;
+        display: block;
+      }
+
+      .searchResult .searchResult_body th {
+        text-align: left;
+        margin-bottom: 5px;
         width: 65px;
       }
 
-      .searchResult .searchResult_body dd {
+      .searchResult .searchResult_body td {
         padding: 0 20px 0 5px;
+        margin-bottom: 10px;
       }
 
-      .searchResult .searchResult_body dd>span {
+      .searchResult .searchResult_body td>span {
         font-size: 18px;
       }
     }

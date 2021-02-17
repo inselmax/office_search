@@ -453,10 +453,8 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             }
 
             $custom_html = <<<EOM
-            <dl>
-                <dt>広さ</dt>
-                <dd>{$min_tsubo}坪～{$max_tsubo}坪</dd>
-            </dl>
+                <th><span>広さ</span></th>
+                <td>{$min_tsubo}坪～{$max_tsubo}坪</td>
             EOM;
             break;
 
@@ -492,10 +490,8 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             }
 
             $custom_html = <<<EOM
-            <dl>
-                <dt>従業員数</dt>
-                <dd>{$min_hito}人～{$max_hito}人</dd>
-            </dl>
+                <th><span>従業員数</span></th>
+                <td>{$min_hito}人～{$max_hito}人</td>
             EOM;
             break;
 
