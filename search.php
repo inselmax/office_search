@@ -133,6 +133,9 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
           }
         ],
       });
+
+      //matchHeight
+      $('.topicsContent').matchHeight();
     });
   </script>
 
