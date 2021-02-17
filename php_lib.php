@@ -448,6 +448,10 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
                 $option_content = '全エリア';
             }
 
+            if( $form_data['area_all'] ) {
+                $option_content = '全エリア';
+            }
+
             $custom_html = <<<EOM
             <dl>
                 <dt>広さ</dt>
