@@ -135,10 +135,10 @@ function sortTsubo( $office_ary, $form_data ) {
     $min_tsubo = 0;
     $max_tsubo = 999;
 
-    if( !empty($form_data['tsubo_min']) && $form_data['tsubo_min'] > $min_tsubo ) {
+    if( !empty($form_data['tsubo_min']) && is_numeric( $form_data['tsubo_min'] ) && $form_data['tsubo_min'] > $min_tsubo ) {
         $min_tsubo = $form_data['tsubo_min'];
     }
-    if( !empty($form_data['tsubo_max']) && $form_data['tsubo_max'] < $max_tsubo ) {
+    if( !empty($form_data['tsubo_max']) && is_numeric( $form_data['tsubo_max'] ) && $form_data['tsubo_max'] < $max_tsubo ) {
         $max_tsubo = $form_data['tsubo_max'];
     }
 
@@ -185,10 +185,10 @@ function sortHito( $office_ary, $form_data ) {
     $min_tsubo = 0;
     $max_tsubo = 999;
 
-    if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_tsubo ) {
+    if( !empty($form_data['hito_min']) && is_numeric( $form_data['hito_min'] ) && $form_data['hito_min'] > $min_tsubo ) {
         $min_tsubo = $form_data['hito_min'] * 3;
     }
-    if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_tsubo ) {
+    if( !empty($form_data['hito_max']) && is_numeric( $form_data['hito_max'] ) && $form_data['hito_max'] < $max_tsubo ) {
         $max_tsubo = $form_data['hito_max'] * 3;
     }
 
@@ -427,10 +427,10 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $min_tsubo = 0;
             $max_tsubo = 999;
 
-            if( !empty($form_data['tsubo_min']) && $form_data['tsubo_min'] > $min_tsubo ) {
+            if( !empty($form_data['tsubo_min']) && is_numeric( $form_data['tsubo_min'] ) && $form_data['tsubo_min'] > $min_tsubo ) {
                 $min_tsubo = $form_data['tsubo_min'];
             }
-            if( !empty($form_data['tsubo_max']) && $form_data['tsubo_max'] < $max_tsubo ) {
+            if( !empty($form_data['tsubo_max']) && is_numeric( $form_data['tsubo_max'] ) && $form_data['tsubo_max'] < $max_tsubo ) {
                 $max_tsubo = $form_data['tsubo_max'];
             }
 
@@ -466,10 +466,10 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
             $min_hito = 0;
             $max_hito = 999;
 
-            if( !empty($form_data['hito_min']) && $form_data['hito_min'] > $min_hito ) {
+            if( !empty($form_data['hito_min']) && is_numeric( $form_data['hito_min'] ) && $form_data['hito_min'] > $min_hito ) {
                 $min_hito = $form_data['hito_min'];
             }
-            if( !empty($form_data['hito_max']) && $form_data['hito_max'] < $max_hito ) {
+            if( !empty($form_data['hito_max']) && is_numeric( $form_data['hito_max'] ) && $form_data['hito_max'] < $max_hito ) {
                 $max_hito = $form_data['hito_max'];
             }
 
@@ -484,6 +484,10 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
                     }
                 }
             }else {
+                $option_content = '全エリア';
+            }
+
+            if( $form_data['area_all'] ) {
                 $option_content = '全エリア';
             }
 
