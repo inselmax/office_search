@@ -28,9 +28,19 @@ function htmlSearchForm_01( $session_data ) {
 						<div class="SearchBy_cont">
 							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all']) echo 'checked'; ?>> 全エリア</label>
 							<?php
-                                    foreach (AREA_NAME as $key => $value) {
-                                        echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> ' . $value . '</label>';
-                                    }
+								$area_item_flg = null;
+								if( $session_data['area_item'] ) {
+									$area_item_flg = true;
+								}
+								foreach (AREA_NAME as $key => $value) {
+									if( $area_item_flg ) {
+										$checked = "";
+										if ( in_array(sprintf('%02d', ($key)), $session_data['area_item'], true) ) {
+											$checked = "checked";
+										}
+									}
+									echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> ' . $value . '</label>';
+								}
 							?>
 						</div>
 					</div>
