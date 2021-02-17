@@ -14,7 +14,13 @@ require_once($Root . "/office_search/php_lib.php");
 // HTML
 //
 function htmlSearchForm_01( $session_data ) {
-    ?>
+
+	$form_flg = false;
+	if( !empty($session_data['form_submit']) && $session_data['form_submit'] === "hito" || $session_data['form_submit'] === "tsubo" ) {
+		$form_flg = true;
+	}
+
+?>
 
 <section class="SearchSect SearchSect-easy">
 	<div class="l-inner search_inner">
@@ -26,10 +32,10 @@ function htmlSearchForm_01( $session_data ) {
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all']) echo 'checked'; ?>> 全エリア</label>
+							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all'] && $form_flg) echo 'checked'; ?>> 全エリア</label>
 							<?php
 								$area_item_flg = null;
-								if( $session_data['area_item'] ) {
+								if( $session_data['area_item'] && $form_flg ) {
 									$area_item_flg = true;
 								}
 								foreach (AREA_NAME as $key => $value) {
@@ -52,7 +58,7 @@ function htmlSearchForm_01( $session_data ) {
 									rel="lightbox">業種ごとの1人当たりの目安坪数</a>
 							</p>
 							<div class="SearchBy_inputWrap">
-							<input type="text" name="tsubo_min" value="<?php if($session_data['tsubo_min']) echo escStr($session_data['tsubo_min']); ?>"> 坪～　<input type="text" name="tsubo_max" value="<?php if($session_data['tsubo_max']) echo escStr($session_data['tsubo_max']); ?>"> 坪
+							<input type="text" name="tsubo_min" value="<?php if($session_data['tsubo_min'] && $form_flg) echo escStr($session_data['tsubo_min']); ?>"> 坪～　<input type="text" name="tsubo_max" value="<?php if($session_data['tsubo_max'] && $form_flg) echo escStr($session_data['tsubo_max']); ?>"> 坪
 							</div>
 							<div class="SearchBy_buttonWrap">
 								<button type="submit" name="form_submit" value="tsubo"
@@ -66,7 +72,7 @@ function htmlSearchForm_01( $session_data ) {
 						<div class="SearchBy_cont">
 							<p class="small-txt u-pb5">※1人あたり3坪計算</p>
 							<div class="SearchBy_inputWrap">
-							<input type="text" name="hito_min" value="<?php if($session_data['hito_min']) echo escStr($session_data['hito_min']); ?>"> 人～　<input type="text" name="hito_max" value="<?php if($session_data['hito_max']) echo escStr($session_data['hito_max']); ?>"> 人
+							<input type="text" name="hito_min" value="<?php if($session_data['hito_min'] && $form_flg) echo escStr($session_data['hito_min']); ?>"> 人～　<input type="text" name="hito_max" value="<?php if($session_data['hito_max'] && $form_flg) echo escStr($session_data['hito_max']); ?>"> 人
 							</div>
 							<div class="SearchBy_buttonWrap">
 								<button type="submit" name="form_submit" value="hito"
@@ -90,9 +96,14 @@ function htmlSearchForm_01( $session_data ) {
 //
 // HTML
 //
-function htmlSearchForm_02( $session_data )
-{
-    ?>
+function htmlSearchForm_02( $session_data ) {
+
+	$form_flg = false;
+	if( !empty($session_data['form_submit']) && $session_data['form_submit'] === "kodawari" ) {
+		$form_flg = true;
+	}
+
+?>
 <section class="SearchSect SearchSect-kodawari">
 	<div class="l-inner search_inner">
 		<dl class="SearchSect_wrap">
@@ -104,59 +115,53 @@ function htmlSearchForm_02( $session_data )
 					<div class="SearchBy SearchBy-area">
 						<div class="SearchBy_ttl"><span>まずはエリアを選択</span></div>
 						<div class="SearchBy_cont">
-							<label><input type="checkbox" name="area_all" value="all"><span class="label_check">
-									全エリア</span></label>
+							<label><input type="checkbox" name="area_all" value="all" <?php if($session_data['area_all'] && $form_flg) echo 'checked'; ?>><span class="label_check">全エリア</span></label>
 							<?php
+								$area_item_flg = null;
+								if( $session_data['area_item'] && $form_flg ) {
+									$area_item_flg = true;
+								}
                                 foreach (AREA_NAME as $key => $value) {
-                                    echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '"> <span class="label_check">' . $value . '</span></label>';
-                                } ?>
+									if( $area_item_flg ) {
+										$checked = "";
+										if ( in_array(sprintf('%02d', ($key)), $session_data['area_item'], true) ) {
+											$checked = "checked";
+										}
+									}
+                                    echo '<label><input type="checkbox" name="area_item[]" value="' . sprintf('%02d', ($key)) . '" ' . $checked . '> <span class="label_check">' . $value . '</span></label>';
+                                }
+							?>
 						</div>
 						<div>
 							<div class="SearchBy SearchBy-kodawari">
 								<div class="SearchBy_ttl"><span>こだわり条件を選択</span></div>
 								<div class="SearchBy_cont SearchBy_cont-kodawari">
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="J"> <span class="label_check">駅スグ</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="I"> <span class="label_check">駅直結</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="D"> <span class="label_check">貸会議室</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="E"> <span class="label_check">貸駐車場</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option_1fk"
-											value="1fk"> <span class="label_check">1Fコンビニ</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="P"> <span class="label_check">EVリニューアル</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="O"> <span class="label_check">空調リニューアル</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="N"> <span class="label_check">給湯室リニューアル</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="M"> <span class="label_check">トイレリニューアル</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="B"> <span class="label_check">個別空調</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="C"> <span class="label_check">光回線</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="L"> <span class="label_check">OAフロア対応</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="F"> <span class="label_check">ビル前ポスト</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="G"> <span class="label_check">管理人常駐</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="Q"> <span class="label_check">防犯カメラ</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option[]"
-											value="A"> <span class="label_check">24時間利用</span></label>
-									<label><input class="office_option_input" type="checkbox"
-											name="office_option_10fmin" value="10fmin"> <span
-											class="label_check">高階層(10階以上)</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option_3fmin"
-											value="3fmin"> <span class="label_check">低階層(3階以上)</span></label>
-									<label><input class="office_option_input" type="checkbox" name="office_option_fmax"
-											value="fmax"> <span class="label_check">最上階</span></label>
-									<label><input class="office_option_input" type="checkbox"
-											name="office_option_1fshop" value="1fshop"> <span
-											class="label_check">1F店舗空物件</span></label>
+									<?php
+										$op_ary = array();
+										if( $session_data['office_option'] && $form_flg ) {
+											$op_ary = $session_data['office_option'];
+										}
+									?>
+									<label><input <?php if(!empty($op_ary) && in_array("J", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="J"> <span class="label_check">駅スグ</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("I", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="I"> <span class="label_check">駅直結</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("D", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="D"> <span class="label_check">貸会議室</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("E", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="E"> <span class="label_check">貸駐車場</span></label>
+									<label><input <?php if($session_data['office_option_1fk'] && $form_flg) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option_1fk" value="1fk"> <span class="label_check">1Fコンビニ</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("P", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="P"> <span class="label_check">EVリニューアル</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("O", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="O"> <span class="label_check">空調リニューアル</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("N", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="N"> <span class="label_check">給湯室リニューアル</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("M", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="M"> <span class="label_check">トイレリニューアル</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("B", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="B"> <span class="label_check">個別空調</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("C", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="C"> <span class="label_check">光回線</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("L", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="L"> <span class="label_check">OAフロア対応</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("F", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="F"> <span class="label_check">ビル前ポスト</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("G", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="G"> <span class="label_check">管理人常駐</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("Q", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="Q"> <span class="label_check">防犯カメラ</span></label>
+									<label><input <?php if(!empty($op_ary) && in_array("A", $op_ary, true)) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option[]" value="A"> <span class="label_check">24時間利用</span></label>
+									<label><input <?php if($session_data['office_option_10fmin'] && $form_flg) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option_10fmin" value="10fmin"> <span class="label_check">高階層(10階以上)</span></label>
+									<label><input <?php if($session_data['office_option_3fmin'] && $form_flg) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option_3fmin" value="3fmin"> <span class="label_check">低階層(3階以上)</span></label>
+									<label><input <?php if($session_data['office_option_fmax'] && $form_flg) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option_fmax" value="fmax"> <span class="label_check">最上階</span></label>
+									<label><input <?php if($session_data['office_option_1fshop'] && $form_flg) echo 'checked'; ?> class="office_option_input" type="checkbox" name="office_option_1fshop" value="1fshop"> <span class="label_check">1F店舗空物件</span></label>
 								</div>
 							</div>
 						</div>
