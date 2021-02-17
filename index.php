@@ -294,10 +294,6 @@ $("#form_kodawari .area_label").on('click', function(){
 			-ms-transform: translateY(-50%);
 		}
 
-		.SearchSect-kodawari .SearchBy_ttl span::before {
-			left: 0;
-		}
-
 		.SearchBy-area .SearchBy_ttl span:before {
 			background: url(/image_uniq/office_search/area_ico.png) no-repeat;
 			background-size: contain;
