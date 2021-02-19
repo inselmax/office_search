@@ -617,7 +617,7 @@ function getPageNavi( $office_data, $page_current ) {
 //
 // return string
 //
-function escStr( $str ) {
+function escString( $str ) {
 
     return htmlspecialchars($str, ENT_QUOTES, 'utf-8');
 

@@ -58,7 +58,7 @@ function htmlSearchForm_01( $session_data ) {
 									rel="lightbox">業種ごとの1人当たりの目安坪数</a>
 							</p>
 							<div class="SearchBy_inputWrap">
-							<input type="text" name="tsubo_min" value="<?php if($session_data['tsubo_min'] && $form_flg) echo escStr($session_data['tsubo_min']); ?>"> 坪～　<input type="text" name="tsubo_max" value="<?php if($session_data['tsubo_max'] && $form_flg) echo escStr($session_data['tsubo_max']); ?>"> 坪
+							<input type="text" name="tsubo_min" value="<?php if($session_data['tsubo_min'] && $form_flg) echo escString($session_data['tsubo_min']); ?>"> 坪～　<input type="text" name="tsubo_max" value="<?php if($session_data['tsubo_max'] && $form_flg) echo escString($session_data['tsubo_max']); ?>"> 坪
 							</div>
 							<div class="SearchBy_buttonWrap">
 								<button type="submit" name="form_submit" value="tsubo"
@@ -72,7 +72,7 @@ function htmlSearchForm_01( $session_data ) {
 						<div class="SearchBy_cont">
 							<p class="small-txt u-pb5">※1人あたり3坪計算</p>
 							<div class="SearchBy_inputWrap">
-							<input type="text" name="hito_min" value="<?php if($session_data['hito_min'] && $form_flg) echo escStr($session_data['hito_min']); ?>"> 人～　<input type="text" name="hito_max" value="<?php if($session_data['hito_max'] && $form_flg) echo escStr($session_data['hito_max']); ?>"> 人
+							<input type="text" name="hito_min" value="<?php if($session_data['hito_min'] && $form_flg) echo escString($session_data['hito_min']); ?>"> 人～　<input type="text" name="hito_max" value="<?php if($session_data['hito_max'] && $form_flg) echo escString($session_data['hito_max']); ?>"> 人
 							</div>
 							<div class="SearchBy_buttonWrap">
 								<button type="submit" name="form_submit" value="hito"
