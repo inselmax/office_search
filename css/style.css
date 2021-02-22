@@ -400,9 +400,9 @@
 		width: 100%;
 	}
 
-	.SearchSect-easy .SearchBy .SearchBy_ttl span::before {
+	/*.SearchSect-easy .SearchBy .SearchBy_ttl span::before {
 		left: 4.5%;
-	}
+	}*/
 
 	.SearchSect-easy .search_cont .SearchBy_cont label {
 		padding: 0;
