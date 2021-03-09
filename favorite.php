@@ -311,9 +311,9 @@ foreach ($_COOKIE as $key => $value) {
                   // --------------------------------------------
                   // ★検索情報を取得・出力 START
 
-                  $search_option = array();
-                  $search_option = getSearchOption($data_new, $search_type, $cookie_data);
-                  htmlSearchOption($search_option);
+                  // $search_option = array();
+                  // $search_option = getSearchOption($data_new, $search_type, $cookie_data);
+                  // htmlSearchOption($search_option);
 
                   // ～ 検索情報を取得・出力 END
                   // --------------------------------------------
