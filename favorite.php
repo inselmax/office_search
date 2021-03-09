@@ -7,37 +7,10 @@ require_once($Root . "/office_search/config.php");
 require_once($Root . "/office_search/php_lib.php");
 require_once($Root . "/office_search/html_lib.php");
 
-// フォームデータをセット
-$form_data = array();
-if ($_POST) {
-    $form_data = $_POST;
-    $_SESSION['FORM_DATA'] = $form_data;
-} elseif (!empty($_GET["theme"]) && $_GET["theme"] != "" && $_GET["stype"] === "theme") {
-    $form_data["theme"] = $_GET["theme"];
-
-    if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
-        $form_data["stype"] = $_GET["stype"];
-    }
-
-    $_SESSION['FORM_DATA'] = $form_data;
-} elseif ($_SESSION['FORM_DATA']) {
-    $form_data = $_SESSION['FORM_DATA'];
-}
-
-
-// 現在のページを取得
-$page_current = 1;
-if (!empty($_GET["page"]) && $_GET["page"] != "") {
-    $page_current = (int) $_GET["page"];
-}
-
-
-// 検索タイプを取得
-$search_type = '';
-if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
-    $search_type = $_GET["stype"];
-} elseif ($form_data['form_submit']) {
-    $search_type = $form_data['form_submit'];
+$search_type = "favorite";
+$cookie_data = array();
+foreach ($_COOKIE as $key => $value) {
+  array_push($cookie_data, (string)$key);
 }
 
 ?>
@@ -315,7 +288,48 @@ if (!empty($_GET["stype"]) && $_GET["stype"] != "") {
         <section class="showcase topSection topSection-topics">
           <div class="l-inner">
             <h3 id="bukken_mark" class="ts_tit favorite_ttl u-pt60"><span>検討リスト</span></h3>
+            <ul class="l-grid l-gutter-m ts_lists">
+              <?php
 
+                // 物件データを取得（全ビル）
+                $data_bukken = getJSON(BLDG_OFFICE_JSON);
+
+                // 物件データがあれば
+                if ($data_bukken != null) {
+
+
+                  // --------------------------------------------
+                  // ★絞り込み処理 START
+
+                  $data_new = array();
+                  $data_new = getSearchOffice($data_bukken, $search_type, $cookie_data);
+
+                  // ～ 絞り込み処理 END
+                  // --------------------------------------------
+
+
+                  // --------------------------------------------
+                  // ★検索情報を取得・出力 START
+
+                  $search_option = array();
+                  $search_option = getSearchOption($data_new, $search_type, $cookie_data);
+                  htmlSearchOption($search_option);
+
+                  // ～ 検索情報を取得・出力 END
+                  // --------------------------------------------
+
+                  foreach ($data_new as $key => $value) {
+                    // 物件データを取得する
+                    $office_data = getOfficeData($value);
+
+                    // 物件を出力
+                    htmlOffice($office_data);
+                  }
+
+                }
+                ?>
+
+            </ul>
         </section>
 
       </section>

@@ -97,6 +97,9 @@ function getSearchOffice( $office_ary, $form_type, $form_data ) {
         case "theme":
             $ary = sortTheme( $office_ary, $form_data );
             break;
+        case "favorite":
+            $ary = sortFavorite( $office_ary, $form_data );
+            break;
         default:
             break;
     }
@@ -404,6 +407,29 @@ function sortTheme( $office_ary, $form_data ) {
 
 
 // --------------------------------------------------------
+// ・絞り込み（検討リスト）
+// $office_ary Array
+// $cookie_data array
+//
+// return Array
+//
+function sortFavorite( $office_ary, $cookie_data ) {
+
+    $ary = array();
+
+    if( !empty($cookie_data) ) {
+        foreach ( $office_ary as $key => $value ) {
+            if ( in_array( $value['gsx$物件id']['$t'], $cookie_data, true) ) {
+                array_push($ary, $value);
+            }
+        }
+    }
+
+    return $ary;
+}
+
+
+// --------------------------------------------------------
 // ・検索情報を取得する
 // $sort_data　Array
 // $form_type String
@@ -550,6 +576,12 @@ function getSearchOption( $sort_data, $form_type, $form_data ) {
         case "theme":
             $option_name = 'テーマ';
             $option_content = SEARCH_THEME_NAME[$form_data['theme']]["name"];
+            break;
+
+        // 検討リストで検索
+        case "favorite":
+            $option_name = '検索条件';
+            $option_content = "検討中のオフィス";
             break;
 
         default:
