@@ -122,7 +122,13 @@ foreach ($_COOKIE as $key => $value) {
       position: relative;
       padding-left: 45px;
     }
-
+    .main-officeSearch .favorite_subttl {
+		background: #e7f6fb;
+		color: #047298;
+		font-size: 21px;
+		margin: 10px 0 15px;
+		padding: 8px 0 8px 15px;
+    }
     .main-officeSearch .favorite_ttl span::before {
       background: url(/image_uniq/office_search/favorite_ttl_ico.png) no-repeat;
       background-size: contain;
@@ -143,6 +149,9 @@ foreach ($_COOKIE as $key => $value) {
         font-size: 21px;
         margin-bottom: 10px;
       }
+	  .main-officeSearch .favorite_subttl {
+		font-size: 18px;
+		}
     }
 
     /* index.phpと共通の部分 END */
@@ -288,7 +297,7 @@ foreach ($_COOKIE as $key => $value) {
         <section class="showcase topSection topSection-topics">
           <div class="l-inner">
             <h3 id="bukken_mark" class="ts_tit favorite_ttl u-pt60"><span>検討リスト</span></h3>
-            <!-- <h4>ビル</h4> -->
+            <h4 class="favorite_subttl">オフィスビルの検討リスト</h4>
             <ul class="l-grid l-gutter-m ts_lists">
               <?php
 
@@ -332,7 +341,7 @@ foreach ($_COOKIE as $key => $value) {
 
             </ul>
 
-            <!-- <h4>マンション</h4> -->
+            <h4 class="favorite_subttl">マンションの検討リスト</h4>
             <ul class="l-grid l-gutter-m ts_lists">
               <?php
 
