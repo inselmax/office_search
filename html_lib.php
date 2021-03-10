@@ -366,6 +366,51 @@ function htmlOffice($office_data)
 
 
 // --------------------------------------------------------
+// ・物件データ
+// $room_data Array
+//
+// HTML
+//
+function htmlRoom($room_data)
+{
+    $room_html = <<<EOM
+    <li class="ts_list l-grid_item l-grid_item-3 l-grid_item-4-tab l-grid_item-12-sp">
+      <article class="topicsContent">
+        <div class="topicsContent_inner">
+          <div class="topicsContent_header">
+          <p class="topicsContent_area topicsContent_area-{$room_data['area_class']}">{$room_data['area_name']}エリア</p>
+            <div class="topicsContent_image">
+              <a href="/mansion/{$room_data['mansion_slug']}/intro.php?room={$room_data['room_id']}">
+                <img src="{$room_data['room_thumbnail']}" alt="">
+                <div class="extent">{$room_data['room_tsubo']}<span class="extent_s-txt">坪</span></div>
+              </a>
+            </div>
+          </div>
+          <div class="topicsContent_body">
+            <div class="topicsContent_date_sp"><time datetime="{$room_data['office_create_at_html']}">{$room_data['office_create_at_html']}</time>{$room_data['office_new']}</div>
+            <div class="topicsContent_date"><time datetime="{$room_data['office_create_at_html']}">{$room_data['office_create_at_html']}</time>{$room_data['office_new']}</div>
+            {$room_data['office_state_html']}
+            <div class="topicsContent_tit l-clearfix">
+              <h1 class="topicsContent_name">{$room_data['mansion_name']}</h1>
+            </div>
+            <div class="topicsContent_info l-clearfix"><p class="topicsContent_floor">[間取] {$room_data['room_madori']} [面積] {$room_data['room_tsubo']}m&sup2; [階数] {$room_data['room_floor']}</p></div>
+            <p class="topicsContent_desc">{$room_data['room_cmt_tit']}</p>
+            <p class="topicsContent_btn ButtonD-light folder">
+              <a class="bldg_id" href="javascript:void(0);" onclick="setCookie(this)" data-id="{$room_data['room_id']}">
+                <span class="ButtonA_inner">検討リストに入れる</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </article>
+    </li>
+  EOM;
+
+    echo $room_html;
+}
+
+
+// --------------------------------------------------------
 // ・ページナビ
 // $page_current Int
 // $total_page Int
