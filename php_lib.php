@@ -73,6 +73,45 @@ function getOfficeData( $office_ary ) {
 
 
 // --------------------------------------------------------
+// ・物件データ（マンション）から各情報を取得する
+// $room_data Array
+//
+// return Array
+//
+function getRoomData( $room_ary ) {
+
+    $room_id = $room_ary['gsx$物件id']['$t'];
+    $mansion_id = getBldgId( $room_id );
+
+    $room_data = array(
+        // 物件IDを格納
+        'room_id' => $room_id,
+        // ビル情報
+        'mansion_id' => $mansion_id, // ID
+        'mansion_name' => $room_ary['gsx$マンション']['$t'], // 名前
+        'mansion_slug' => MANSION_SLUG[ $mansion_id ], // スラッグ
+        // 物件情報
+        'room_floor' => $room_ary['gsx$階数']['$t'], // 階数
+        'room_tsubo' => $room_ary['gsx$契約面積']['$t'], // 坪数
+        'room_madori' => $room_ary['gsx$間取']['$t'], // 間取
+        'room_thumbnail' => $room_ary['gsx$室内図面url']['$t'], // サムネイルを取得
+        'room_create_at' => $room_ary['gsx$登録日']['$t'], // 登録日
+        'room_create_at_html' => date("Y/m/d", strtotime($room_ary['gsx$登録日']['$t'])), // 登録日（HTML）
+        'room_new' => getHtmlNew( $room_ary['gsx$登録日']['$t'] ), // NEW（HTML）
+        'room_state' => $room_ary['gsx$状態']['$t'], // 空き状態
+        'room_state_html' => getHtmlStatus( $room_ary['gsx$状態']['$t'] ), // 空き状態（HTML）
+        'room_cmt_tit' => $room_ary['gsx$物件コメントタイトル']['$t'], // 物件コメントタイトル
+        // エリア情報を格納・取得
+        'area_name' => MANSION_AREA_NAME[$mansion_id],
+        'area_class' => MANSION_AERA_CLASS[$mansion_id]
+    );
+
+    return $room_data;
+
+}
+
+
+// --------------------------------------------------------
 // ・物件データを絞り込む
 // $office_ary Array
 // $form_type String

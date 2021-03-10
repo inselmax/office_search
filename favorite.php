@@ -288,6 +288,7 @@ foreach ($_COOKIE as $key => $value) {
         <section class="showcase topSection topSection-topics">
           <div class="l-inner">
             <h3 id="bukken_mark" class="ts_tit favorite_ttl u-pt60"><span>検討リスト</span></h3>
+            <!-- <h4>ビル</h4> -->
             <ul class="l-grid l-gutter-m ts_lists">
               <?php
 
@@ -324,6 +325,50 @@ foreach ($_COOKIE as $key => $value) {
 
                     // 物件を出力
                     htmlOffice($office_data);
+                  }
+
+                }
+                ?>
+
+            </ul>
+
+            <!-- <h4>マンション</h4> -->
+            <ul class="l-grid l-gutter-m ts_lists">
+              <?php
+
+                // 物件データを取得（全ビル）
+                $data_m_bukken = getJSON(MANSION_ROOM_JSON);
+
+                // 物件データがあれば
+                if ($data_m_bukken != null) {
+
+
+                  // --------------------------------------------
+                  // ★絞り込み処理 START
+
+                  $data_m_new = array();
+                  $data_m_new = getSearchOffice($data_m_bukken, $search_type, $cookie_data);
+
+                  // ～ 絞り込み処理 END
+                  // --------------------------------------------
+
+
+                  // --------------------------------------------
+                  // ★検索情報を取得・出力 START
+
+                  // $search_option = array();
+                  // $search_option = getSearchOption($data_new, $search_type, $cookie_data);
+                  // htmlSearchOption($search_option);
+
+                  // ～ 検索情報を取得・出力 END
+                  // --------------------------------------------
+
+                  foreach ($data_m_new as $key => $value) {
+                    // 物件データを取得する
+                    $room_data = getRoomData($value);
+
+                    // 物件を出力
+                    htmlRoom($room_data);
                   }
 
                 }
